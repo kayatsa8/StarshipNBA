@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="APIGateway" />
+        <module name="PopulationMicroservice" />
+        <module name="GNewsMicroservice" />
+        <module name="NBAMicroService" />
+        <module name="UIMicroservice" />
+        <module name="ServiceDiscovery" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Population_Microservice" target="17" />
+      <module name="RAD_Internship" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="APIGateway" options="-parameters" />
+      <module name="GNewsMicroservice" options="-parameters" />
+      <module name="NBAMicroService" options="-parameters" />
+      <module name="PopulationMicroservice" options="-parameters" />
+      <module name="Population_Microservice" options="-parameters" />
+      <module name="RAD_Internship" options="-parameters" />
+      <module name="ServiceDiscovery" options="-parameters" />
+      <module name="UIMicroservice" options="-parameters" />
+    </option>
+  </component>
+</project>

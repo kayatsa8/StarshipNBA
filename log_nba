@@ -1,0 +1,266 @@
+ינו׳ 09, 2024 8:19:29 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 09, 2024 8:19:29 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching news data from api
+ינו׳ 09, 2024 8:19:31 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: news data fetched
+ינו׳ 12, 2024 3:20:53 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:22:39 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:27:38 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:27:44 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:31:12 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:31:20 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:32:04 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:33:13 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:33:41 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:34:57 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:35:25 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:35:59 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:37:18 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:37:57 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:38:50 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:40:06 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:40:42 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:41:32 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:47:08 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 12, 2024 3:49:14 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 6:42:33 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 6:47:04 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 6:51:15 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 6:53:50 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 6:55:00 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 7:03:24 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 7:05:01 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 7:09:03 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 7:12:22 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 7:20:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 9:06:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 13, 2024 9:06:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 10:25:16 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 10:25:17 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 10:28:52 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 10:28:52 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 10:28:56 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 10:28:56 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 10:49:45 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 10:49:45 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 11:00:24 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 11:00:24 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching news data from api
+ינו׳ 14, 2024 11:00:26 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: news data fetched
+ינו׳ 14, 2024 11:05:15 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 11:05:15 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 11:07:58 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 11:07:58 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching news data from api
+ינו׳ 14, 2024 11:07:58 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: news data fetched
+ינו׳ 14, 2024 11:07:59 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 11:07:59 לפנה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 12:16:35 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 12:16:36 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 1:54:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 1:54:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching news data from api
+ינו׳ 14, 2024 1:55:17 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 1:55:18 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 1:56:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 1:56:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 1:58:28 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 1:58:29 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 1:59:07 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 1:59:07 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 2:00:55 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 2:00:55 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 2:02:33 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 2:02:33 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 2:04:13 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 2:04:14 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:14:22 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:14:22 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:18:19 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:18:20 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:18:23 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:18:23 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:21:22 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:21:23 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:21:24 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:21:24 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:35:49 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:35:50 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:35:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:35:51 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:44:55 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:44:56 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:44:58 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:44:58 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:45:00 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 14, 2024 8:52:45 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:52:46 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:52:48 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:52:48 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:52:50 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 14, 2024 8:55:42 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 8:55:42 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 14, 2024 8:55:45 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:55:45 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 8:56:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 8:56:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 9:32:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 14, 2024 9:32:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 14, 2024 9:32:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 14, 2024 9:32:40 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 14, 2024 9:32:41 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:00:00 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:00:00 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:00:05 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 15, 2024 10:00:05 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 15, 2024 10:00:06 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 15, 2024 10:00:15 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:00:15 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:00:19 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 15, 2024 10:00:19 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 15, 2024 10:00:19 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 15, 2024 10:00:21 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:00:21 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:00:26 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 15, 2024 10:00:26 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 15, 2024 10:00:26 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 15, 2024 10:03:25 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 15, 2024 10:03:25 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 15, 2024 10:03:25 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 15, 2024 10:03:27 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:03:27 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:04:30 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 15, 2024 10:04:30 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching data from api
+ינו׳ 15, 2024 10:04:30 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: data fetched
+ינו׳ 15, 2024 10:04:31 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:04:31 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 15, 2024 10:04:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 15, 2024 10:04:37 אחה״צ com.nba.nbamicroservice.log.Log info
+INFO: fetching players
