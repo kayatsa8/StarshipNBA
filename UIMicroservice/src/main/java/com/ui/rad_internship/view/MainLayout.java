@@ -35,11 +35,12 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         //hi mom
-        SideNavItem item = new SideNavItem("Hi Mom", HiMom.class);
-        nav.addItem(item);
+//        SideNavItem item = new SideNavItem("Hi Mom", HiMom.class);
+//        nav.addItem(item);
 
 
         //nba
+        addDashboard(nav);
         addNBAScreen(nav);
         addNewsScreen(nav);
         addPopulationScreen(nav);
@@ -60,5 +61,10 @@ public class MainLayout extends AppLayout {
     private void addPopulationScreen(SideNav nav){
         SideNavItem populationScreen = new SideNavItem("Population", PopulationView.class, LineAwesomeIcon.WAREHOUSE_SOLID.create());
         nav.addItem(populationScreen);
+    }
+
+    private void addDashboard(SideNav nav){
+        SideNavItem newsScreen = new SideNavItem("Dashboard", Dashboard.class, LineAwesomeIcon.DASHCUBE.create());
+        nav.addItem(newsScreen);
     }
 }
