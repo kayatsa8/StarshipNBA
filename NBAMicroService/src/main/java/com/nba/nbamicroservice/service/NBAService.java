@@ -12,6 +12,9 @@ import java.util.function.Function;
 
 public abstract class NBAService {
 
+    @Autowired
+    protected WebClient.Builder webClientBuilder;
+
     protected Function<JsonNode, JsonNode> nbaDataExtractor(){
         return (root) -> root.path("response");
     }

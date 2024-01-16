@@ -19,7 +19,7 @@ public class PlayerService extends NBAService{
 
 
     public void init() {
-        new Fetcher<Player>(repository)
+        new Fetcher<Player>(repository, webClientBuilder)
                 .fetch("https://api-nba-v1.p.rapidapi.com/games?date=2023-12-13",
                         Player.class, getHeaders(), nbaDataExtractor());
     }

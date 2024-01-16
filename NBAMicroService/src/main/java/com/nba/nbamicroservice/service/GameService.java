@@ -5,7 +5,9 @@ import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.fetcher.NBAFetcher;
 import com.nba.nbamicroservice.model.games.Game;
 import com.nba.nbamicroservice.repository.GameRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,7 +24,7 @@ public class GameService extends NBAService{
     }
 
     public void init(){
-        new Fetcher<Game>(repository)
+        new Fetcher<Game>(repository, webClientBuilder)
                 .fetch("https://api-nba-v1.p.rapidapi.com/games?date=2023-12-13",
                         Game.class, getHeaders(), nbaDataExtractor());
     }

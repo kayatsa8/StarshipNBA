@@ -7,9 +7,13 @@ import com.nba.nbamicroservice.model.players.Player;
 import com.nba.nbamicroservice.model.teams.Team;
 import com.nba.nbamicroservice.service.PlayerService;
 import com.nba.nbamicroservice.service.TeamService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.reactive.function.client.WebClient;
 
 
 import java.util.HashMap;
@@ -21,6 +25,8 @@ public class NBAController {
 
     private TeamService teamService;
     private PlayerService playerService;
+    @Autowired
+    private WebClient.Builder webClientBuilder;
 
 
 
@@ -47,7 +53,7 @@ public class NBAController {
     @GetMapping("/news/top-headlines")
     public List<Article> getTopHeadlines(){
         Log.info("fetching top-headlines");
-        return new Fetcher<Article>(null).fetch("http://localhost:8083/api/news/top-headlines",
+        return new Fetcher<Article>(null, webClientBuilder).fetch("http://localhost:8083/api/news/top-headlines",
                 Article.class, new HashMap<>(), (root) -> root);
     }
 

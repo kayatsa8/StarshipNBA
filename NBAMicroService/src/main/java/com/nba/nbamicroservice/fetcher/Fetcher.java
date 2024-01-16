@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
@@ -18,13 +19,16 @@ import java.util.Map;
 import java.util.function.Function;
 
 
+
 public class Fetcher <T>{
 
     private MongoRepository<T, String> repository;
+    private WebClient.Builder webClientBuilder;
 
 
-    public Fetcher(MongoRepository<T, String> repo){
+    public Fetcher(MongoRepository<T, String> repo, WebClient.Builder builder){
         repository = repo;
+        webClientBuilder = builder;
     }
 
     // continue
@@ -44,7 +48,7 @@ public class Fetcher <T>{
     private String fetchData_webClient(String url, Map<String, String> headers){
         Log.info("fetching data from api");
 
-        WebClient webClient = WebClient.create(url);
+        WebClient webClient = webClientBuilder.baseUrl(url).build();
 
         String responseBody = webClient.get()
                 .uri("")
@@ -52,6 +56,15 @@ public class Fetcher <T>{
                 .retrieve()
                 .bodyToMono(String.class)
                 .block();
+
+//        WebClient webClient = WebClient.create(url);
+
+//        String responseBody = webClient.get()
+//                .uri("")
+//                .headers(httpHeaders -> httpHeaders.setAll(headers))
+//                .retrieve()
+//                .bodyToMono(String.class)
+//                .block();
 
         Log.info("data fetched");
 
@@ -79,6 +92,12 @@ public class Fetcher <T>{
         return list;
     }
 
+
+    @Bean
+    @LoadBalanced
+    public WebClient.Builder loadBalancedWebClientBuilder() {
+        return WebClient.builder();
+    }
 
     // LEGACY
     /*
