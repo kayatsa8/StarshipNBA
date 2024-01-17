@@ -14,7 +14,6 @@ public class TeamFilter {
     private String logo;
     private Boolean allStar;
     private Boolean nbaFranchise;
-
     private String leagues;
 
 
