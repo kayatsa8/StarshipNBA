@@ -20,6 +20,7 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
 import java.util.List;
@@ -30,10 +31,10 @@ import java.util.function.Consumer;
 @Route(value = "", layout = MainLayout.class)
 public class NBAView extends VerticalLayout {
 
-//    @Value("apiGateway.host")
-    private String apiGatewayHost = "http://localhost:8080";
+    private String apiGatewayHost;
 
-    public NBAView(){
+    public NBAView(@Value("${apiGateway.host}") String apiGatewayHost){
+        this.apiGatewayHost = apiGatewayHost;
         makeTabNavigation();
     }
 
@@ -124,7 +125,7 @@ public class NBAView extends VerticalLayout {
 
 
     private void makePlayerTab(TabSheet tabSheet){
-        List<Player> players = new Fetcher<Player>().fetch("http://localhost:8080/api/nba/players",
+        List<Player> players = new Fetcher<Player>().fetch(apiGatewayHost + "/api/nba/players",
                 Player.class, new HashMap<>(),
                 (root) -> root);
 
