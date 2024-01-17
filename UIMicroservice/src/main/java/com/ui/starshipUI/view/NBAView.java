@@ -1,6 +1,7 @@
 package com.ui.starshipUI.view;
 
 import com.ui.starshipUI.Fetcher;
+import com.ui.starshipUI.filter.PlayerFilter;
 import com.ui.starshipUI.filter.TeamFilter;
 import com.ui.starshipUI.model.nba.players.Player;
 import com.ui.starshipUI.model.nba.teams.Team;
@@ -127,31 +128,43 @@ public class NBAView extends VerticalLayout {
                 Player.class, new HashMap<>(),
                 (root) -> root);
 
+        Map<String, Grid.Column<Player>> columns = new HashMap<>();
+
         Div div = new Div();
-        Grid<Player> grid = makePlayerGrid();
-        grid.setItems(players);
+        Grid<Player> grid = makePlayerGrid(columns);
+        GridListDataView<Player> dataView = grid.setItems(players);
+
+        addPlayerFilters(grid, dataView, columns);
 
         div.add(grid);
 
         tabSheet.add("Players", div);
     }
 
-    private Grid<Player> makePlayerGrid(){
+    private Grid<Player> makePlayerGrid(Map<String, Grid.Column<Player>> columns){
         Grid<Player> grid = new Grid<>(Player.class, false);
 
-        grid.addColumn(Player::getId).setHeader("ID").setTooltipGenerator((player) -> "" + player.getId());
-        grid.addColumn(Player::getFirstName).setHeader("First Name").setTooltipGenerator(Player::getFirstName);
-        grid.addColumn(Player::getLastName).setHeader("LastName").setTooltipGenerator(Player::getLastName);
-        grid.addColumn(Player::getNbaStart).setHeader("NBA Start")
-                .setTooltipGenerator((player) -> "" + player.getNbaStart());
-        grid.addColumn(Player::getNbaPro).setHeader("NBA Pro").setTooltipGenerator((player) -> "" + player.getNbaPro());
-        grid.addColumn(Player::getHeightInMeters).setHeader("Height (m)")
-                .setTooltipGenerator(Player::getHeightInMeters);
-        grid.addColumn(Player::getWeightInKilograms).setHeader("Weight (kg)")
-                .setTooltipGenerator(Player::getWeightInKilograms);
-        grid.addColumn(Player::getCollege).setHeader("College").setTooltipGenerator(Player::getCollege);
-        grid.addColumn(Player::getAffiliation).setHeader("Affiliation").setTooltipGenerator(Player::getAffiliation);
-        grid.addColumn(Player::getLeaguesAsString).setHeader("Leagues").setTooltipGenerator(Player::getLeaguesAsString);
+        columns.put("ID", grid.addColumn(Player::getId).setHeader("ID")
+                .setTooltipGenerator((player) -> "" + player.getId()));
+        columns.put("First Name", grid.addColumn(Player::getFirstName).setHeader("First Name")
+                .setTooltipGenerator(Player::getFirstName));
+        columns.put("Last Name", grid.addColumn(Player::getLastName).setHeader("Last Name")
+                .setTooltipGenerator(Player::getLastName));
+        columns.put("NBA Start", grid.addColumn(Player::getNbaStart).setHeader("NBA Start")
+                .setTooltipGenerator((player) -> "" + player.getNbaStart()));
+        columns.put("NBA Pro", grid.addColumn(Player::getNbaPro).setHeader("NBA Pro")
+                .setTooltipGenerator((player) -> "" + player.getNbaPro()));
+        columns.put("Height (m)", grid.addColumn(Player::getHeightInMeters).setHeader("Height (m)")
+                .setTooltipGenerator(Player::getHeightInMeters));
+        columns.put("Weight (kg)", grid.addColumn(Player::getWeightInKilograms).setHeader("Weight (kg)")
+                .setTooltipGenerator(Player::getWeightInKilograms));
+        columns.put("College", grid.addColumn(Player::getCollege).setHeader("College")
+                .setTooltipGenerator(Player::getCollege));
+        columns.put("Affiliation", grid.addColumn(Player::getAffiliation).setHeader("Affiliation")
+                .setTooltipGenerator(Player::getAffiliation));
+        columns.put("Leagues", grid.addColumn(Player::getLeaguesAsString).setHeader("Leagues")
+                .setTooltipGenerator(Player::getLeaguesAsString));
+
 
         for(Grid.Column<Player> column : grid.getColumns()){
             column.setSortable(true);
@@ -162,6 +175,35 @@ public class NBAView extends VerticalLayout {
         grid.setHeight("580px");
 
         return grid;
+    }
+
+    private void addPlayerFilters(Grid<Player> grid, GridListDataView<Player> dataView,
+                                Map<String, Grid.Column<Player>> columns){
+        PlayerFilter filter = new PlayerFilter(dataView);
+
+//        HeaderRow headerRow = grid.appendHeaderRow();
+        HeaderRow headerRow = grid.getHeaderRows().get(0);
+
+        headerRow.getCell(columns.get("ID")).setComponent(
+                createFilterHeader("ID", filter::setId));
+        headerRow.getCell(columns.get("First Name")).setComponent(
+                createFilterHeader("First Name", filter::setFirstName));
+        headerRow.getCell(columns.get("Last Name")).setComponent(
+                createFilterHeader("Lat Name", filter::setLastName));
+        headerRow.getCell(columns.get("NBA Start")).setComponent(
+                createFilterHeader("NBA Start", filter::setNbaStart));
+        headerRow.getCell(columns.get("NBA Pro")).setComponent(
+                createFilterHeader("NBA Pro", filter::setNbaPro));
+        headerRow.getCell(columns.get("Height (m)")).setComponent(
+                createFilterHeader("Height (m)", filter::setHeight));
+        headerRow.getCell(columns.get("Weight (kg)")).setComponent(
+                createFilterHeader("Weight (kg)", filter::setWeight));
+        headerRow.getCell(columns.get("College")).setComponent(
+                createFilterHeader("College", filter::setCollege));
+        headerRow.getCell(columns.get("Affiliation")).setComponent(
+                createFilterHeader("Affiliation", filter::setAffiliation));
+        headerRow.getCell(columns.get("Leagues")).setComponent(
+                createFilterHeader("Leagues", filter::setLeagues));
     }
 
     private Image logoImage(Team team){
