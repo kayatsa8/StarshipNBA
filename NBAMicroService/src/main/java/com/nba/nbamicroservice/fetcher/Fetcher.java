@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
@@ -91,6 +92,12 @@ public class Fetcher <T>{
 
         return list;
     }
+
+    private String fetchData_restTemplate(String url, Map<String, String> headers){
+        return null;
+    }
+
+
 
 
     @Bean

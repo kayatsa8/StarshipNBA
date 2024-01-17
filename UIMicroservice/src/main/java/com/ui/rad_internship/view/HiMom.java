@@ -7,7 +7,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 
 @PageTitle("Hi Mom")
-@Route(value = "", layout = MainLayout.class)
+@Route(value = "HiMom", layout = MainLayout.class)
 public class HiMom extends VerticalLayout {
 
     public HiMom(){

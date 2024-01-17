@@ -12,13 +12,17 @@ import com.vaadin.flow.component.tabs.TabSheet;
 import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
 import java.util.List;
 
 @PageTitle("NBA")
-@Route(value = "nba", layout = MainLayout.class)
+@Route(value = "", layout = MainLayout.class)
 public class NBAView extends VerticalLayout {
+
+    @Value("apiGateway.host")
+    private String apiGatewayHost;
 
     public NBAView(){
         makeTabNavigation();
@@ -35,7 +39,7 @@ public class NBAView extends VerticalLayout {
     }
 
     private void makeTeamTab(TabSheet tabSheet){
-        List<Team> teams = new Fetcher<Team>().fetch("http://localhost:8080/api/nba/teams",
+        List<Team> teams = new Fetcher<Team>().fetch(apiGatewayHost + "/api/nba/teams",
                                                          Team.class, new HashMap<>(),
                                                          (root) -> root);
         Div div = new Div();

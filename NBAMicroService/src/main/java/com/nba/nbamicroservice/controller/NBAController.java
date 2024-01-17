@@ -55,6 +55,8 @@ public class NBAController {
         Log.info("fetching top-headlines");
         return new Fetcher<Article>(null, webClientBuilder).fetch("http://localhost:8083/api/news/top-headlines",
                 Article.class, new HashMap<>(), (root) -> root);
+
+        //localhost:8083
     }
 
 

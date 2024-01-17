@@ -35,8 +35,8 @@ public class MainLayout extends AppLayout {
         SideNav nav = new SideNav();
 
         //hi mom
-        SideNavItem item = new SideNavItem("Hi Mom", HiMom.class);
-        nav.addItem(item);
+//        SideNavItem item = new SideNavItem("Hi Mom", HiMom.class);
+//        nav.addItem(item);
 
 
         //nba
