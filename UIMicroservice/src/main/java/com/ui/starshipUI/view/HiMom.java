@@ -1,4 +1,4 @@
-package com.ui.rad_internship.view;
+package com.ui.starshipUI.view;
 
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.notification.Notification;

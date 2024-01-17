@@ -1,4 +1,4 @@
-package com.ui.rad_internship;
+package com.ui.starshipUI;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;

@@ -1,4 +1,4 @@
-package com.ui.rad_internship;
+package com.ui.starshipUI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

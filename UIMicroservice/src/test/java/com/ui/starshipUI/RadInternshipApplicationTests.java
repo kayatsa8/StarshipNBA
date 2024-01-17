@@ -1,4 +1,4 @@
-package com.ui.rad_internship;
+package com.ui.starshipUI;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

@@ -1,4 +1,4 @@
-package com.ui.rad_internship.model.News;
+package com.ui.starshipUI.model.News;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;

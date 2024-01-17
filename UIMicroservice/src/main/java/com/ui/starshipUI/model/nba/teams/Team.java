@@ -1,4 +1,4 @@
-package com.ui.rad_internship.model.nba.teams;
+package com.ui.starshipUI.model.nba.teams;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -129,6 +129,6 @@ public class Team {
             leagueString.append(league).append(", ");
         }
 
-        return leagueString.delete(leagueString.length()-1, leagueString.length()).toString();
+        return leagueString.delete(leagueString.length()-2, leagueString.length()).toString();
     }
 }

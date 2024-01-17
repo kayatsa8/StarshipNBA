@@ -1,10 +1,8 @@
-package com.ui.rad_internship.model;
+package com.ui.starshipUI.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vaadin.flow.component.template.Id;
-
-import java.util.Map;
 
 public class Country {
 

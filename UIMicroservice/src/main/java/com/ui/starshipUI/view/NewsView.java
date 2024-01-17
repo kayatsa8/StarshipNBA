@@ -1,7 +1,7 @@
-package com.ui.rad_internship.view;
+package com.ui.starshipUI.view;
 
-import com.ui.rad_internship.Fetcher;
-import com.ui.rad_internship.model.News.Article;
+import com.ui.starshipUI.Fetcher;
+import com.ui.starshipUI.model.News.Article;
 import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.dependency.Uses;
 import com.vaadin.flow.component.grid.Grid;

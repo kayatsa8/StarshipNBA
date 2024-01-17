@@ -1,4 +1,4 @@
-package com.ui.rad_internship.model.nba.teams;
+package com.ui.starshipUI.model.nba.teams;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
