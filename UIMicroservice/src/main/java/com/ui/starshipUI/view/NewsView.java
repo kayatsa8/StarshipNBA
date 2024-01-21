@@ -15,6 +15,7 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import jakarta.annotation.security.PermitAll;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -25,6 +26,7 @@ import java.util.List;
 @PageTitle("News")
 @Route(value = "News", layout = MainLayout.class)
 @Uses(Icon.class)
+@PermitAll
 public class NewsView extends Div {
 
     private Grid<Article> grid;
