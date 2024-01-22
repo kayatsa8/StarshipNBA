@@ -16,6 +16,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import jakarta.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -30,8 +31,11 @@ import java.util.List;
 public class NewsView extends Div {
 
     private Grid<Article> grid;
+    private String apiGatewayHost;
 
-    public NewsView() {
+    public NewsView(@Value("${apiGateway.host}") String apiGatewayHost) {
+        this.apiGatewayHost = apiGatewayHost;
+
         setSizeFull();
         addClassNames("news-view");
 
@@ -91,7 +95,7 @@ public class NewsView extends Div {
                 return new Anchor(); // Empty anchor if URL is empty
             }
         })).setHeader("Source URL").setAutoWidth(false);
-        List<Article> articleList= new Fetcher<Article>().fetch("http://localhost:8080/api/news/top-headlines",
+        List<Article> articleList= new Fetcher<Article>().fetch(apiGatewayHost + "/api/news/top-headlines",
                 Article.class, new HashMap<>(),
                 (root) -> root);
         grid.setItems(articleList);
