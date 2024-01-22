@@ -1,12 +1,18 @@
 package com.news.gnewsmicroservice.model;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import java.time.LocalDateTime;
 
 @Document("Articles")
 public class Article {
 
+
+    @JsonIgnore
+    private LocalDateTime addedAt = LocalDateTime.now();
     private String title;
     private String description;
     private String content;
@@ -84,5 +90,11 @@ public class Article {
 
     public void setSource(Source source) {
         this.source = source;
+    }
+    public LocalDateTime getAddedAt() {
+        return addedAt;
+    }
+    public void SetAddedAt(LocalDateTime addedAt) {
+        this.addedAt = addedAt;
     }
 }

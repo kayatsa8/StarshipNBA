@@ -6,6 +6,8 @@ import com.news.gnewsmicroservice.model.Article;
 import com.news.gnewsmicroservice.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 
@@ -24,9 +26,14 @@ public class ArticleService {
                 .fetch("https://gnews.io/api/v4/top-headlines?country=il&category=general" +
                         "&apikey=ca6803dbe05ebcfd71267c4e89437524", Article.class,
                         new HashMap<>(), (root) -> root.path("articles"));
+        System.out.println("finished importing articles");
     }
 
     public List<Article> findAll(){
         return repository.findAll();
+    }
+
+    public List<Article> findAllByAddedAtAfter(LocalDateTime publishDate){
+        return repository.findAllByAddedAtAfter(publishDate);
     }
 }
