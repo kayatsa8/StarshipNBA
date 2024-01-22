@@ -20,6 +20,7 @@ import com.vaadin.flow.data.renderer.ComponentRenderer;
 import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import jakarta.annotation.security.PermitAll;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
@@ -29,6 +30,7 @@ import java.util.function.Consumer;
 
 @PageTitle("NBA")
 @Route(value = "", layout = MainLayout.class)
+@PermitAll
 public class NBAView extends VerticalLayout {
 
     private String apiGatewayHost;

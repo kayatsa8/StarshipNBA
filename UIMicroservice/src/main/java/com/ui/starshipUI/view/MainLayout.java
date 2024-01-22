@@ -1,21 +1,39 @@
 package com.ui.starshipUI.view;
 
+import com.ui.starshipUI.services.SecurityService;
 import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
+import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
 import com.vaadin.flow.component.sidenav.SideNavItem;
 import com.vaadin.flow.router.*;
 import com.vaadin.flow.theme.lumo.LumoUtility;
+import jakarta.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.vaadin.lineawesome.LineAwesomeIcon;
 
 @PageTitle("Main")
 @Route(value = "main")
+@PermitAll
 public class MainLayout extends AppLayout {
 
-    public MainLayout() {
+    private SecurityService securityService;
+
+    public MainLayout(@Autowired SecurityService securityService) {
+        this.securityService = securityService;
+        H1 logo = new H1("Vaadin CRM");
+        logo.addClassName("logo");
         DrawerToggle toggle = new DrawerToggle();
+
+        HorizontalLayout header=new HorizontalLayout();
+        if (securityService.getAuthenticatedUser() != null) {
+            Button logout = new Button("Logout", click ->
+                    securityService.logout());
+            header = new HorizontalLayout(logout);
+        }
 
         H1 title = new H1("Starship NBA");
         title.getStyle().set("font-size", "var(--lumo-font-size-l)")
@@ -25,9 +43,9 @@ public class MainLayout extends AppLayout {
 
         Scroller scroller = new Scroller(nav);
         scroller.setClassName(LumoUtility.Padding.SMALL);
-
         addToDrawer(scroller);
         addToNavbar(toggle, title);
+        addToNavbar(header);
     }
 
     private SideNav getSideNav(){
