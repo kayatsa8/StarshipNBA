@@ -17,6 +17,7 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import jakarta.annotation.security.PermitAll;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
 import java.util.List;
@@ -31,10 +32,13 @@ public class PopulationView extends Div {
 
 
     private final Map<String, String> alpha3ToAlpha2Map;
+    private String apiGatewayHost;
 
 
 
-    public PopulationView() {
+    public PopulationView(@Value("${apiGateway.host}") String apiGatewayHost) {
+        this.apiGatewayHost = apiGatewayHost;
+
         this.alpha3ToAlpha2Map = createAlpha3ToAlpha2Map();
         setSizeFull();
         addClassNames("population-view");
@@ -87,7 +91,7 @@ public class PopulationView extends Div {
             return div;
         })).setHeader("Population 2020").setAutoWidth(true);
 
-        List<Country> countriesList= new Fetcher<Country>().fetch("http://localhost:8080/api/population/countries",
+        List<Country> countriesList= new Fetcher<Country>().fetch(apiGatewayHost + "/api/population/countries",
                 Country.class, new HashMap<>(),
                 (root) -> root);
         grid.setItems(countriesList);
