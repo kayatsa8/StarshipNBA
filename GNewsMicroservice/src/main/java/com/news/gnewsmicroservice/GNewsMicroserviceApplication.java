@@ -13,7 +13,5 @@ public class GNewsMicroserviceApplication {
         SpringApplication.run(GNewsMicroserviceApplication.class, args);
     }
 
-    //TODO make scheduler
-
 
 }

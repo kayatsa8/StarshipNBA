@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController
@@ -24,7 +26,7 @@ public class GNewsController {
         service = articleService;
     }
 
-    @Scheduled(cron = "0 0 * * * ?")
+    @Scheduled(cron = "0 0 8-20 * * ?")
     public void autoImportNews(){
         Log.info("importing articles");
         System.out.println("importing articles");
@@ -38,13 +40,13 @@ public class GNewsController {
 
     @GetMapping("/top-headlines")
     public List<Article> getTopHeadlines(){
-        Log.info("searching for articles");
-        return service.findAll();
+        LocalDateTime fiveHoursAgo = LocalDateTime.now().minusHours(5);
+        Log.info("searching for articles since " + fiveHoursAgo);
+        return service.findAllByAddedAtAfter(fiveHoursAgo);
     }
 
     @PostMapping("/top-headlines")
     public void importTopHeadLines(){
-        Log.info("importing articles");
         service.init();
     }
 }
