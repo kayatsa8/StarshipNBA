@@ -2,9 +2,13 @@ package com.starship.starshipUI.model.nba.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Map;
 
+@Getter
+@Setter
 public class Player {
 
     private int id;
@@ -36,102 +40,6 @@ public class Player {
         this.college = college;
         this.affiliation = affiliation;
         this.leagues = leagues;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Birth getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Birth birth) {
-        this.birth = birth;
-    }
-
-    public NBA getNba() {
-        return nba;
-    }
-
-    public void setNba(NBA nba) {
-        this.nba = nba;
-    }
-
-    public Height getHeight() {
-        return height;
-    }
-
-    public void setHeight(Height height) {
-        this.height = height;
-    }
-
-    public Weight getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Weight weight) {
-        this.weight = weight;
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
-    public String getAffiliation() {
-        return affiliation;
-    }
-
-    public void setAffiliation(String affiliation) {
-        this.affiliation = affiliation;
-    }
-
-    public Map<String, League> getLeagues() {
-        return leagues;
-    }
-
-    public void setLeagues(Map<String, League> leagues) {
-        this.leagues = leagues;
-    }
-
-    public int getNbaStart(){
-        return nba.getStart();
-    }
-
-    public int getNbaPro(){
-        return nba.getPro();
-    }
-
-    public String getHeightInMeters(){
-        return height.getMeters();
-    }
-
-    public String getWeightInKilograms(){
-        return weight.getKilograms();
     }
 
     public String getLeaguesAsString(){

@@ -2,9 +2,14 @@ package com.starship.starshipUI.model.News;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Article{
     public String id;
+    //getters and setters
     public String title;
     public String description;
     public String content;
@@ -29,50 +34,6 @@ public class Article{
         this.source = source;
     }
 
-    //getters and setters
-    public String getTitle() {
-        return title;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public String getContent() {
-        return content;
-    }
-
-    public String getUrl() {
-        return url;
-    }
-    public String getImage() {
-        return image;
-    }
-    public String getPublishedAt() {
-        return publishedAt;
-    }
-    public String getSourceName() {
-        return source.getSourceName();
-    }
-    public String getSourceUrl() {
-        return source.getSourceUrl();
-    }
-    public void setTitle(String title) {
-        this.title = title;
-    }
-    public void setDescription(String description) {
-        this.description = description;
-    }
-    public void setContent(String content) {
-        this.content = content;
-    }
-    public void setUrl(String url) {
-        this.url = url;
-    }
-    public void setImage(String image) {
-        this.image = image;
-    }
-    public void setPublishedAt(String publishedAt) {
-        this.publishedAt = publishedAt;
-    }
     public void setSourceName(String sourceName) {
         this.source.setSourceName(sourceName);
     }

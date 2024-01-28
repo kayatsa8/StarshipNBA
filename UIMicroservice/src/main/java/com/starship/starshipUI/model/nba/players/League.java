@@ -2,7 +2,11 @@ package com.starship.starshipUI.model.nba.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class League {
 
     private int jersey;
@@ -19,27 +23,4 @@ public class League {
         this.pos = pos;
     }
 
-    public int getJersey() {
-        return jersey;
-    }
-
-    public void setJersey(int jersey) {
-        this.jersey = jersey;
-    }
-
-    public boolean isActive() {
-        return active;
-    }
-
-    public void setActive(boolean active) {
-        this.active = active;
-    }
-
-    public String getPos() {
-        return pos;
-    }
-
-    public void setPos(String pos) {
-        this.pos = pos;
-    }
 }

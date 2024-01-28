@@ -3,7 +3,11 @@ package com.starship.starshipUI.model;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.vaadin.flow.component.template.Id;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Country {
 
     @Id
@@ -11,12 +15,16 @@ public class Country {
 
     public Integer Rank;
 
+    @Getter
     public String CCA3;
+    @Getter
     public String Country;
     public String Capital;
     public String Continent;
+    @Getter
     public Integer Population_2022;
 
+    @Getter
     public Integer Population_2020;
 
     public Integer Population_2015;
@@ -64,63 +72,6 @@ public class Country {
         this.Density = density;
         this.Growth = growth;
         this.World_Population_Percentage = world_Population_Percentage;
-    }
-
-
-    public Integer getRank() {
-        return Rank;
-    }
-
-    public void setRank(Integer rank) {
-        Rank = rank;
-    }
-
-    public String getCCA3() {
-        return CCA3;
-    }
-
-    public void setCCA3(String CCA3) {
-        this.CCA3 = CCA3;
-    }
-
-    public String getCountry() {
-        return Country;
-    }
-
-    public void setCountry(String country) {
-        Country = country;
-    }
-
-    public String getCapital() {
-        return Capital;
-    }
-
-    public void setCapital(String capital) {
-        Capital = capital;
-    }
-
-    public String getContinent() {
-        return Continent;
-    }
-
-    public void setContinent(String continent) {
-        Continent = continent;
-    }
-
-    public Integer getPopulation_2022() {
-        return Population_2022;
-    }
-
-    public void setPopulation_2022(Integer population_2022) {
-        Population_2022 = population_2022;
-    }
-
-    public Integer getPopulation_2020() {
-        return Population_2020;
-    }
-
-    public void setPopulation_2020(Integer population_2020) {
-        Population_2020 = population_2020;
     }
 
     @Override
