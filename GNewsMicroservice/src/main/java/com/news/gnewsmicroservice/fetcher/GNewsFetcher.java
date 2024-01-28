@@ -19,7 +19,7 @@ import java.util.List;
 
 public class GNewsFetcher {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
 
     public GNewsFetcher(ArticleRepository repo){
@@ -74,7 +74,7 @@ public class GNewsFetcher {
             JsonNode root = mapper.readTree(responseBody);
             JsonNode res = root.path("articles");
 
-            list =  mapper.readValue(res.toString(), new TypeReference<List<Article>>(){});
+            list =  mapper.readValue(res.toString(), new TypeReference<>(){});
         }
         catch (JsonProcessingException e) {
             Log.severe("Exception in news:");

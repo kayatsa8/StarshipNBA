@@ -9,14 +9,13 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
 public class Fetcher<T>{
 
-    private MongoRepository<T, String> repository;
+    private final MongoRepository<T, String> repository;
 
     private WebClient.Builder webClientBuilder;
 

@@ -12,7 +12,7 @@ import java.util.List;
 @Service
 public class ArticleService {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
 
     public ArticleService(ArticleRepository repo){

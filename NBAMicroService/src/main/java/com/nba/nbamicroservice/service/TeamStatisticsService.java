@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class TeamStatisticsService extends NBAService{
 
-    private TeamStatisticsRepository repository;
+    private final TeamStatisticsRepository repository;
 
 
     public TeamStatisticsService(TeamStatisticsRepository repo){
@@ -16,7 +16,7 @@ public class TeamStatisticsService extends NBAService{
     }
 
     public void init() {
-        new Fetcher<TeamStatistics>(repository, webClientBuilder)
+        new Fetcher<>(repository, webClientBuilder)
                 .fetch("https://api-nba-v1.p.rapidapi.com/games?date=2023-12-13",
                         TeamStatistics.class, getHeaders(), nbaDataExtractor());
     }
