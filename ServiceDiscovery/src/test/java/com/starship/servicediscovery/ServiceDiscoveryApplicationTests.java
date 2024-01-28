@@ -1,4 +1,4 @@
-package com.discovery.servicediscovery;
+package com.starship.servicediscovery;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
