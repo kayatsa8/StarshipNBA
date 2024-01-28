@@ -1,13 +1,11 @@
 package com.news.gnewsmicroservice.service;
 
-import com.news.gnewsmicroservice.fetcher.Fetcher;
-import com.news.gnewsmicroservice.fetcher.GNewsFetcher;
 import com.news.gnewsmicroservice.model.Article;
 import com.news.gnewsmicroservice.repository.ArticleRepository;
+import org.example.commons.Fetcher;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 

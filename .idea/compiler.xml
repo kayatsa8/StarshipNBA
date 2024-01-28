@@ -6,17 +6,19 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="NBAMicroService" />
+        <module name="UIMicroservice" />
         <module name="APIGateway" />
         <module name="PopulationMicroservice" />
         <module name="GNewsMicroservice" />
-        <module name="NBAMicroService" />
-        <module name="UIMicroservice" />
+        <module name="commons" />
         <module name="ServiceDiscovery" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="Population_Microservice" target="17" />
       <module name="RAD_Internship" target="17" />
+      <module name="untitled" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
@@ -29,6 +31,7 @@
       <module name="RAD_Internship" options="-parameters" />
       <module name="ServiceDiscovery" options="-parameters" />
       <module name="UIMicroservice" options="-parameters" />
+      <module name="commons" options="-parameters" />
     </option>
   </component>
 </project>

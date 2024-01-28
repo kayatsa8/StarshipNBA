@@ -1,8 +1,8 @@
 package com.nba.nbamicroservice.service;
 
-import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.model.game_statistics.GameStatistics;
 import com.nba.nbamicroservice.repository.GameStatisticsRepository;
+import org.example.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

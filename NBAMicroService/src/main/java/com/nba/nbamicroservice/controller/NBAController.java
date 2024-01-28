@@ -1,6 +1,5 @@
 package com.nba.nbamicroservice.controller;
 
-import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.log.Log;
 import com.nba.nbamicroservice.model.gnewsModel.Article;
 import com.nba.nbamicroservice.model.players.Player;
@@ -8,6 +7,7 @@ import com.nba.nbamicroservice.model.teams.Team;
 import com.nba.nbamicroservice.service.PlayerService;
 import com.nba.nbamicroservice.service.TeamService;
 import jakarta.annotation.PostConstruct;
+import org.example.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

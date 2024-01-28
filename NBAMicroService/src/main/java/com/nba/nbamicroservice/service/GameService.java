@@ -1,10 +1,10 @@
 package com.nba.nbamicroservice.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.fetcher.NBAFetcher;
 import com.nba.nbamicroservice.model.games.Game;
 import com.nba.nbamicroservice.repository.GameRepository;
+import org.example.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;

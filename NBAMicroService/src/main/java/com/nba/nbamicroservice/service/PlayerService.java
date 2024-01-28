@@ -1,9 +1,8 @@
 package com.nba.nbamicroservice.service;
 
-import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.model.players.Player;
 import com.nba.nbamicroservice.repository.PlayerRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.example.commons.Fetcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -20,7 +19,7 @@ public class PlayerService extends NBAService{
 
 
     public void init() {
-        List<Player> y=new Fetcher<Player>(repository, webClientBuilder)
+        List<Player> y=new Fetcher<Player>(repository)
                 .fetch("https://api-nba-v1.p.rapidapi.com/players",
                         Player.class, getHeaders(), nbaDataExtractor());
         System.out.println(y);

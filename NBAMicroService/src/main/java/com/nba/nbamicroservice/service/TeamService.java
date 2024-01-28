@@ -1,8 +1,8 @@
 package com.nba.nbamicroservice.service;
 
-import com.nba.nbamicroservice.fetcher.Fetcher;
 import com.nba.nbamicroservice.model.teams.Team;
 import com.nba.nbamicroservice.repository.TeamRepository;
+import org.example.commons.Fetcher;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
