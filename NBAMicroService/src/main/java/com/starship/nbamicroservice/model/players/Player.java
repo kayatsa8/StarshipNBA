@@ -2,11 +2,15 @@ package com.starship.nbamicroservice.model.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Map;
 
+@Getter
+@Setter
 @Document("Players")
 public class Player {
 
@@ -42,83 +46,4 @@ public class Player {
         this.leagues = leagues;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
-    }
-
-    public String getLastName() {
-        return lastName;
-    }
-
-    public void setLastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public Birth getBirth() {
-        return birth;
-    }
-
-    public void setBirth(Birth birth) {
-        this.birth = birth;
-    }
-
-    public NBA getNba() {
-        return nba;
-    }
-
-    public void setNba(NBA nba) {
-        this.nba = nba;
-    }
-
-    public Height getHeight() {
-        return height;
-    }
-
-    public void setHeight(Height height) {
-        this.height = height;
-    }
-
-    public Weight getWeight() {
-        return weight;
-    }
-
-    public void setWeight(Weight weight) {
-        this.weight = weight;
-    }
-
-    public String getCollege() {
-        return college;
-    }
-
-    public void setCollege(String college) {
-        this.college = college;
-    }
-
-    public String getAffiliation() {
-        return affiliation;
-    }
-
-    public void setAffiliation(String affiliation) {
-        this.affiliation = affiliation;
-    }
-
-    public Map<String, League> getLeagues() {
-        return leagues;
-    }
-
-    public void setLeagues(Map<String, League> leagues) {
-        this.leagues = leagues;
-    }
 }

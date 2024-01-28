@@ -2,7 +2,11 @@ package com.starship.nbamicroservice.model.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Weight {
 
     private String pounds;
@@ -15,19 +19,4 @@ public class Weight {
         this.kilograms = kilograms;
     }
 
-    public String getPounds() {
-        return pounds;
-    }
-
-    public void setPounds(String pounds) {
-        this.pounds = pounds;
-    }
-
-    public String getKilograms() {
-        return kilograms;
-    }
-
-    public void setKilograms(String kilograms) {
-        this.kilograms = kilograms;
-    }
 }

@@ -2,7 +2,11 @@ package com.starship.nbamicroservice.model.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class Height {
 
     private String feets;
@@ -19,27 +23,4 @@ public class Height {
         this.meters = meters;
     }
 
-    public String getFeets() {
-        return feets;
-    }
-
-    public void setFeets(String feets) {
-        this.feets = feets;
-    }
-
-    public String getInches() {
-        return inches;
-    }
-
-    public void setInches(String inches) {
-        this.inches = inches;
-    }
-
-    public String getMeters() {
-        return meters;
-    }
-
-    public void setMeters(String meters) {
-        this.meters = meters;
-    }
 }

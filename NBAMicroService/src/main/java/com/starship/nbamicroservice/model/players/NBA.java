@@ -2,7 +2,11 @@ package com.starship.nbamicroservice.model.players;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter
+@Setter
 public class NBA {
 
     private int start;
@@ -15,19 +19,4 @@ public class NBA {
         this.pro = pro;
     }
 
-    public int getStart() {
-        return start;
-    }
-
-    public void setStart(int start) {
-        this.start = start;
-    }
-
-    public int getPro() {
-        return pro;
-    }
-
-    public void setPro(int pro) {
-        this.pro = pro;
-    }
 }
