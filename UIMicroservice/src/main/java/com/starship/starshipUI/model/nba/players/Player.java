@@ -42,6 +42,22 @@ public class Player {
         this.leagues = leagues;
     }
 
+    public int getNbaStart(){
+        return nba.getStart();
+    }
+
+    public int getNbaPro(){
+        return nba.getPro();
+    }
+
+    public String getHeightInMeters(){
+        return height.getMeters();
+    }
+
+    public String getWeightInKilograms(){
+        return weight.getKilograms();
+    }
+
     public String getLeaguesAsString(){
         StringBuilder leagueString = new StringBuilder();
 

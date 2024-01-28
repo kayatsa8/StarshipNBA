@@ -34,6 +34,13 @@ public class Article{
         this.source = source;
     }
 
+    public String getSourceName() {
+        return source.getSourceName();
+    }
+    public String getSourceUrl() {
+        return source.getSourceUrl();
+    }
+
     public void setSourceName(String sourceName) {
         this.source.setSourceName(sourceName);
     }
