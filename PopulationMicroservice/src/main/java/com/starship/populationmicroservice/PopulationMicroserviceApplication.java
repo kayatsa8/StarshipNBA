@@ -1,4 +1,4 @@
-package com.population.populationmicroservice;
+package com.starship.populationmicroservice;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

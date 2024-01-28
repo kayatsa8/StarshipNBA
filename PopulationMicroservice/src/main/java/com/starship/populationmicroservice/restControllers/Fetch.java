@@ -1,6 +1,6 @@
-package com.population.populationmicroservice.restControllers;
-import com.population.populationmicroservice.resouces.Country;
-import com.population.populationmicroservice.repositories.CountryRep;
+package com.starship.populationmicroservice.restControllers;
+import com.starship.populationmicroservice.resouces.Country;
+import com.starship.populationmicroservice.repositories.CountryRep;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import kong.unirest.HttpResponse;

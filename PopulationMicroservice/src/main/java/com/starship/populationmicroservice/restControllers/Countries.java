@@ -1,7 +1,7 @@
-package com.population.populationmicroservice.restControllers;
+package com.starship.populationmicroservice.restControllers;
 
-import com.population.populationmicroservice.resouces.Country;
-import com.population.populationmicroservice.repositories.CountryRep;
+import com.starship.populationmicroservice.resouces.Country;
+import com.starship.populationmicroservice.repositories.CountryRep;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;

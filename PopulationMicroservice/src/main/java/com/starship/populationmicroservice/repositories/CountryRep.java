@@ -1,8 +1,8 @@
-package com.population.populationmicroservice.repositories;
+package com.starship.populationmicroservice.repositories;
 
 import java.util.List;
 
-import com.population.populationmicroservice.resouces.Country;
+import com.starship.populationmicroservice.resouces.Country;
 import com.mongodb.lang.NonNull;
 import org.springframework.data.mongodb.repository.MongoRepository;
 

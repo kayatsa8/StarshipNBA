@@ -1,4 +1,4 @@
-package com.population.populationmicroservice.resouces;
+package com.starship.populationmicroservice.resouces;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
