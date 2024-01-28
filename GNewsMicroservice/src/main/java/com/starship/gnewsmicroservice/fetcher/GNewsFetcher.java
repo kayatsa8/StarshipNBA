@@ -1,12 +1,12 @@
-package com.news.gnewsmicroservice.fetcher;
+package com.starship.gnewsmicroservice.fetcher;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.news.gnewsmicroservice.log.Log;
-import com.news.gnewsmicroservice.model.Article;
-import com.news.gnewsmicroservice.repository.ArticleRepository;
+import com.starship.gnewsmicroservice.log.Log;
+import com.starship.gnewsmicroservice.model.Article;
+import com.starship.gnewsmicroservice.repository.ArticleRepository;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;

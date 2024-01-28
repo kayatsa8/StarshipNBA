@@ -1,9 +1,8 @@
-package com.news.gnewsmicroservice.controller;
+package com.starship.gnewsmicroservice.controller;
 
-import com.news.gnewsmicroservice.fetcher.GNewsFetcher;
-import com.news.gnewsmicroservice.log.Log;
-import com.news.gnewsmicroservice.model.Article;
-import com.news.gnewsmicroservice.service.ArticleService;
+import com.starship.gnewsmicroservice.log.Log;
+import com.starship.gnewsmicroservice.model.Article;
+import com.starship.gnewsmicroservice.service.ArticleService;
 import jakarta.annotation.PostConstruct;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,7 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @RestController

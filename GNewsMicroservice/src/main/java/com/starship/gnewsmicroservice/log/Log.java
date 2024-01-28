@@ -1,4 +1,4 @@
-package com.news.gnewsmicroservice.log;
+package com.starship.gnewsmicroservice.log;
 
 import java.io.IOException;
 import java.util.logging.FileHandler;

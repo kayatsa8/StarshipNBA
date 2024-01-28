@@ -1,8 +1,7 @@
-package com.news.gnewsmicroservice.repository;
+package com.starship.gnewsmicroservice.repository;
 
-import com.news.gnewsmicroservice.model.Article;
+import com.starship.gnewsmicroservice.model.Article;
 import org.springframework.data.mongodb.repository.MongoRepository;
-import org.springframework.data.mongodb.repository.Query;
 
 import java.time.LocalDateTime;
 import java.util.List;

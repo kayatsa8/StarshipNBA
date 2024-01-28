@@ -1,13 +1,11 @@
-package com.news.gnewsmicroservice.service;
+package com.starship.gnewsmicroservice.service;
 
-import com.news.gnewsmicroservice.fetcher.Fetcher;
-import com.news.gnewsmicroservice.fetcher.GNewsFetcher;
-import com.news.gnewsmicroservice.model.Article;
-import com.news.gnewsmicroservice.repository.ArticleRepository;
+import com.starship.gnewsmicroservice.fetcher.Fetcher;
+import com.starship.gnewsmicroservice.model.Article;
+import com.starship.gnewsmicroservice.repository.ArticleRepository;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 

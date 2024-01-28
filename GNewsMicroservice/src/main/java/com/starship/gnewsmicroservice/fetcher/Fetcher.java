@@ -1,8 +1,8 @@
-package com.news.gnewsmicroservice.fetcher;
+package com.starship.gnewsmicroservice.fetcher;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.news.gnewsmicroservice.log.Log;
+import com.starship.gnewsmicroservice.log.Log;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.web.reactive.function.client.WebClient;
 
