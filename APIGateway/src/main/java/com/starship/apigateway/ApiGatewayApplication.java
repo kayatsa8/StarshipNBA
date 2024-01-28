@@ -1,4 +1,4 @@
-package com.gateway.apigateway;
+package com.starship.apigateway;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
