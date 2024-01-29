@@ -13,14 +13,13 @@ import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
 public class GNewsFetcher {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
 
     public GNewsFetcher(ArticleRepository repo){
@@ -75,7 +74,7 @@ public class GNewsFetcher {
             JsonNode root = mapper.readTree(responseBody);
             JsonNode res = root.path("articles");
 
-            list =  mapper.readValue(res.toString(), new TypeReference<List<Article>>(){});
+            list =  mapper.readValue(res.toString(), new TypeReference<>(){});
         }
         catch (JsonProcessingException e) {
             Log.severe("Exception in news:");

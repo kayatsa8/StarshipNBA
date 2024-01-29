@@ -1,8 +1,11 @@
-package com.starship.nbamicroservice.fetcher;
+package org.starship.commons;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.starship.nbamicroservice.log.Log;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+//import com.starship.nbamicroservice.log.Log;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.MongoRepository;
@@ -10,19 +13,21 @@ import org.springframework.web.reactive.function.client.WebClient;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
+public class Fetcher<T>{
 
+    private final MongoRepository<T, String> repository;
 
-public class Fetcher <T>{
-
-    private MongoRepository<T, String> repository;
     private WebClient.Builder webClientBuilder;
 
 
+    public Fetcher(MongoRepository<T, String> repo){
+        repository = repo;
+        webClientBuilder=null;
+    }
     public Fetcher(MongoRepository<T, String> repo, WebClient.Builder builder){
         repository = repo;
         webClientBuilder = builder;
@@ -43,9 +48,9 @@ public class Fetcher <T>{
     }
 
     private String fetchData_webClient(String url, Map<String, String> headers){
-        Log.info("fetching data from api");
+        //Log.info("fetching data from api");
 
-        WebClient webClient = webClientBuilder.baseUrl(url).build();
+        WebClient webClient = WebClient.create(url);
 
         String responseBody = webClient.get()
                 .uri("")
@@ -54,16 +59,7 @@ public class Fetcher <T>{
                 .bodyToMono(String.class)
                 .block();
 
-//        WebClient webClient = WebClient.create(url);
-
-//        String responseBody = webClient.get()
-//                .uri("")
-//                .headers(httpHeaders -> httpHeaders.setAll(headers))
-//                .retrieve()
-//                .bodyToMono(String.class)
-//                .block();
-
-        Log.info("data fetched");
+        //Log.info("data fetched");
 
         return responseBody;
     }
@@ -81,26 +77,24 @@ public class Fetcher <T>{
                     mapper.getTypeFactory().constructCollectionType(List.class, elementType));
         }
         catch (IOException e) {
-            Log.severe("Exception:");
-            Log.severe(e.getMessage());
-            Log.severe(Arrays.toString(e.getStackTrace()));
+//            Log.severe("Exception:");
+//            Log.severe(e.getMessage());
+//            Log.severe(Arrays.toString(e.getStackTrace()));
         }
 
         return list;
     }
-
     private String fetchData_restTemplate(String url, Map<String, String> headers){
         return null;
     }
-
-
-
 
     @Bean
     @LoadBalanced
     public WebClient.Builder loadBalancedWebClientBuilder() {
         return WebClient.builder();
     }
+
+
 
     // LEGACY
     /*

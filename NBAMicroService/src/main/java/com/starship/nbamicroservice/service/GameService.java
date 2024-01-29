@@ -1,9 +1,9 @@
 package com.starship.nbamicroservice.service;
 
-import com.starship.nbamicroservice.fetcher.Fetcher;
 import com.starship.nbamicroservice.model.games.Game;
 import com.starship.nbamicroservice.repository.GameRepository;
 import org.springframework.stereotype.Service;
+import org.starship.commons.Fetcher;
 
 @Service
 public class GameService extends NBAService{

@@ -1,6 +1,5 @@
 package com.starship.nbamicroservice.controller;
 
-import com.starship.nbamicroservice.fetcher.Fetcher;
 import com.starship.nbamicroservice.log.Log;
 import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
@@ -8,6 +7,7 @@ import com.starship.nbamicroservice.model.teams.Team;
 import com.starship.nbamicroservice.service.PlayerService;
 import com.starship.nbamicroservice.service.TeamService;
 import jakarta.annotation.PostConstruct;
+import org.starship.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

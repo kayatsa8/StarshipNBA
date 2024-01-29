@@ -1,18 +1,19 @@
 package com.starship.gnewsmicroservice.service;
 
-import com.starship.gnewsmicroservice.fetcher.Fetcher;
 import com.starship.gnewsmicroservice.model.Article;
 import com.starship.gnewsmicroservice.repository.ArticleRepository;
+import org.starship.commons.Fetcher;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 
 @Service
 public class ArticleService {
 
-    private ArticleRepository repository;
+    private final ArticleRepository repository;
 
 
     public ArticleService(ArticleRepository repo){
