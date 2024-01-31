@@ -2,8 +2,12 @@ package com.starship.starshipUI.filter;
 
 import com.starship.starshipUI.model.nba.players.Player;
 import com.vaadin.flow.component.grid.dataview.GridListDataView;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class PlayerFilter {
+
+    private static Logger logger = LogManager.getLogger(PlayerFilter.class);
 
     private final GridListDataView<Player> dataView;
     private Integer id;
@@ -33,56 +37,78 @@ public class PlayerFilter {
         college = null;
         affiliation = null;
         leagues = null;
+
+        logger.info("creating players filter");
     }
 
     public void setId(Integer id) {
         this.id = id;
         this.dataView.refreshAll();
+
+        logger.debug("player id for filter changed");
     }
 
     public void setFirstName(String firstName) {
         this.firstName = firstName;
         this.dataView.refreshAll();
+
+        logger.debug("player first name for filter changed");
     }
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
         this.dataView.refreshAll();
+
+        logger.debug("player last name for filter changed");
     }
 
     public void setNbaStart(Integer nbaStart) {
         this.nbaStart = nbaStart;
         this.dataView.refreshAll();
+
+        logger.debug("player nba start for filter changed");
     }
 
     public void setNbaPro(Integer nbaPro) {
         this.nbaPro = nbaPro;
         this.dataView.refreshAll();
+
+        logger.debug("player bna pro for filter changed");
     }
 
     public void setHeight(String height) {
         this.height = height;
         this.dataView.refreshAll();
+
+        logger.debug("player height for filter changed");
     }
 
     public void setWeight(String weight) {
         this.weight = weight;
         this.dataView.refreshAll();
+
+        logger.debug("player weight for filter changed");
     }
 
     public void setCollege(String college) {
         this.college = college;
         this.dataView.refreshAll();
+
+        logger.debug("player college for filter changed");
     }
 
     public void setAffiliation(String affiliation) {
         this.affiliation = affiliation;
         this.dataView.refreshAll();
+
+        logger.debug("player affiliation for filter changed");
     }
 
     public void setLeagues(String leagues) {
         this.leagues = leagues;
         this.dataView.refreshAll();
+
+        logger.debug("player leagues for filter changed");
     }
 
 

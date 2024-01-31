@@ -17,6 +17,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import jakarta.annotation.security.PermitAll;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
@@ -30,6 +32,8 @@ import java.util.Map;
 @PermitAll
 public class PopulationView extends Div {
 
+    private static Logger logger = LogManager.getLogger(PopulationView.class);
+
 
     private final Map<String, String> alpha3ToAlpha2Map;
     private String apiGatewayHost;
@@ -37,6 +41,9 @@ public class PopulationView extends Div {
 
 
     public PopulationView(@Value("${apiGateway.host}") String apiGatewayHost) {
+
+        logger.debug("creating population view");
+
         this.apiGatewayHost = apiGatewayHost;
 
         this.alpha3ToAlpha2Map = createAlpha3ToAlpha2Map();
@@ -49,9 +56,14 @@ public class PopulationView extends Div {
         layout.setPadding(false);
         layout.setSpacing(false);
         add(layout);
+
+        logger.debug("population view created");
     }
 
     private Component createGrid() {
+
+        logger.debug("making population grid");
+
         Grid<Country> grid;
         grid = new Grid<>(Country.class, false);
         grid.addColumn("rank").setWidth("5px");
@@ -91,17 +103,24 @@ public class PopulationView extends Div {
             return div;
         })).setHeader("Population 2020").setAutoWidth(true);
 
+        logger.debug("fetching population data");
         List<Country> countriesList= new Fetcher<Country>().fetch(apiGatewayHost + "/api/population/countries",
                 Country.class, new HashMap<>(),
                 (root) -> root);
+        logger.debug("population data fetched");
+
         grid.setItems(countriesList);
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.addClassNames(LumoUtility.Border.TOP, LumoUtility.BorderColor.CONTRAST_10);
+
+        logger.debug("population grid created");
 
         return grid;
     }
 
     private Map<String, String> createAlpha3ToAlpha2Map() {
+        logger.debug("creating flags map");
+
         Map<String, String> map = new HashMap<>();
         Locale[] locales = Locale.getAvailableLocales();
 
@@ -118,6 +137,9 @@ public class PopulationView extends Div {
                 map.put(alpha3, alpha2);
             }
         }
+
+        logger.debug("returning map");
+
         return map;
     }
 

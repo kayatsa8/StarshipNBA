@@ -21,6 +21,8 @@ import com.vaadin.flow.data.value.ValueChangeMode;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import jakarta.annotation.security.PermitAll;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.HashMap;
@@ -33,11 +35,17 @@ import java.util.function.Consumer;
 @PermitAll
 public class NBAView extends VerticalLayout {
 
+    private static Logger logger = LogManager.getLogger(NBAView.class);
+
     private String apiGatewayHost;
 
     public NBAView(@Value("${apiGateway.host}") String apiGatewayHost){
+        logger.debug("creating nba view");
+
         this.apiGatewayHost = apiGatewayHost;
         makeTabNavigation();
+
+        logger.debug("nba view created");
     }
 
     private void makeTabNavigation(){
@@ -48,12 +56,19 @@ public class NBAView extends VerticalLayout {
         makePlayerTab(tabSheet);
 
         add(tabSheet);
+
+        logger.debug("tab navigation added");
     }
 
     private void makeTeamTab(TabSheet tabSheet){
+        logger.debug("making team tab");
+
+        logger.debug("getting teams data");
         List<Team> teams = new Fetcher<Team>().fetch(apiGatewayHost + "/api/nba/teams",
                                                          Team.class, new HashMap<>(),
                                                          (root) -> root);
+        logger.debug("teams data fetched");
+
         Map<String, Grid.Column<Team>> columns = new HashMap<>();
 
         Div div = new Div();
@@ -65,9 +80,13 @@ public class NBAView extends VerticalLayout {
         div.add(grid);
 
         tabSheet.add("Teams", div);
+
+        logger.debug("team tab added to tabs");
     }
 
     private Grid<Team> makeTeamGrid(Map<String, Grid.Column<Team>> columns){
+        logger.debug("making team grid");
+
         Grid<Team> grid = new Grid<>(Team.class, false);
 
         columns.put("ID", grid.addColumn(Team::getId).setHeader("ID").setTooltipGenerator(team -> "" + team.getId()));
@@ -94,11 +113,15 @@ public class NBAView extends VerticalLayout {
 
         grid.setHeight("580px");
 
+        logger.debug("team grid created");
+
         return grid;
     }
 
     private void addTeamFilters(Grid<Team> grid, GridListDataView<Team> dataView,
                                 Map<String, Grid.Column<Team>> columns){
+        logger.debug("adding team filter");
+
         TeamFilter filter = new TeamFilter(dataView);
 
 //        HeaderRow headerRow = grid.appendHeaderRow();
@@ -122,14 +145,20 @@ public class NBAView extends VerticalLayout {
                 createFilterHeader("NBA Franchise", filter::setNbaFranchise));
         headerRow.getCell(columns.get("Leagues")).setComponent(
                 createFilterHeader("Leagues", filter::setLeagues));
+
+        logger.debug("team filter added");
     }
 
 
 
     private void makePlayerTab(TabSheet tabSheet){
+        logger.debug("creating player tab");
+
+        logger.debug("getting players data");
         List<Player> players = new Fetcher<Player>().fetch(apiGatewayHost + "/api/nba/players",
                 Player.class, new HashMap<>(),
                 (root) -> root);
+        logger.debug("players data fetched");
 
         Map<String, Grid.Column<Player>> columns = new HashMap<>();
 
@@ -142,9 +171,13 @@ public class NBAView extends VerticalLayout {
         div.add(grid);
 
         tabSheet.add("Players", div);
+
+        logger.debug("player tab created");
     }
 
     private Grid<Player> makePlayerGrid(Map<String, Grid.Column<Player>> columns){
+        logger.debug("making player grid");
+
         Grid<Player> grid = new Grid<>(Player.class, false);
 
         columns.put("ID", grid.addColumn(Player::getId).setHeader("ID")
@@ -177,11 +210,15 @@ public class NBAView extends VerticalLayout {
 
         grid.setHeight("580px");
 
+        logger.debug("player grid added");
+
         return grid;
     }
 
     private void addPlayerFilters(Grid<Player> grid, GridListDataView<Player> dataView,
                                 Map<String, Grid.Column<Player>> columns){
+        logger.debug("making player filter");
+
         PlayerFilter filter = new PlayerFilter(dataView);
 
 //        HeaderRow headerRow = grid.appendHeaderRow();
@@ -207,6 +244,8 @@ public class NBAView extends VerticalLayout {
                 createFilterHeader("Affiliation", filter::setAffiliation));
         headerRow.getCell(columns.get("Leagues")).setComponent(
                 createFilterHeader("Leagues", filter::setLeagues));
+
+        logger.debug("player filter added");
     }
 
     private Image logoImage(Team team){
