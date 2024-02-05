@@ -1,7 +1,8 @@
-package com.starship.nbamicroservice.service;
+package com.starship.nbamicroservice.service.implementations;
 
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.repository.PlayerRepository;
+import com.starship.nbamicroservice.service.interfaces.PlayerService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.starship.commons.Fetcher;
@@ -10,14 +11,14 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PlayerService extends NBAService{
+public class PlayerServiceImpl extends NBAService implements PlayerService {
 
-    private static Logger logger = LogManager.getLogger(PlayerService.class);
+    private static Logger logger = LogManager.getLogger(PlayerServiceImpl.class);
 
     private final PlayerRepository repository;
 
 
-    public PlayerService(PlayerRepository repo){
+    public PlayerServiceImpl(PlayerRepository repo){
         repository = repo;
 
         logger.info("creating player service");

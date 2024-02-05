@@ -4,19 +4,18 @@ import com.starship.nbamicroservice.log.Log;
 import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
-import com.starship.nbamicroservice.service.PlayerService;
-import com.starship.nbamicroservice.service.TeamService;
+import com.starship.nbamicroservice.service.interfaces.PlayerService;
+import com.starship.nbamicroservice.service.interfaces.TeamService;
 import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.starship.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
-
+import org.starship.commons.Fetcher;
 
 import java.util.HashMap;
 import java.util.List;

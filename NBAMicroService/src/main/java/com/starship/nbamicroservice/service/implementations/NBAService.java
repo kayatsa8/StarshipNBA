@@ -1,18 +1,17 @@
-package com.starship.nbamicroservice.service;
+package com.starship.nbamicroservice.service.implementations;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.starship.nbamicroservice.service.interfaces.BasicNBAService;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cloud.client.loadbalancer.LoadBalanced;
-import org.springframework.context.annotation.Bean;
 import org.springframework.web.reactive.function.client.WebClient;
 
 import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Function;
 
-public abstract class NBAService {
+public abstract class NBAService implements BasicNBAService {
 
     private static Logger logger = LogManager.getLogger(NBAService.class);
 
