@@ -8,11 +8,15 @@ import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.server.auth.AnonymousAllowed;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 @Route("login")
 @PageTitle("Login")
 @AnonymousAllowed
 public class LoginView extends VerticalLayout implements BeforeEnterObserver {
+
+    private static Logger logger = LogManager.getLogger(LoginView.class);
 
     private LoginForm login = new LoginForm();
 
@@ -26,6 +30,8 @@ public class LoginView extends VerticalLayout implements BeforeEnterObserver {
         login.setAction("login");
 
         add(new H1("Test Application"), login);
+
+        logger.info("login view created");
     }
 
     @Override

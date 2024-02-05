@@ -1,6 +1,8 @@
 package com.starship.nbamicroservice.service;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +13,8 @@ import java.util.Map;
 import java.util.function.Function;
 
 public abstract class NBAService {
+
+    private static Logger logger = LogManager.getLogger(NBAService.class);
 
     @Autowired
     protected WebClient.Builder webClientBuilder;
@@ -24,6 +28,8 @@ public abstract class NBAService {
 
         headers.put("X-RapidAPI-Key", "aa2829de53mshfbbe74cfa945e67p134bb1jsn16c2deb9b8b2");
         headers.put("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com");
+
+        logger.debug("returning headers for NBA services");
 
         return headers;
     }

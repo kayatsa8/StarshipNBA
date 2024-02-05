@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;
 import lombok.Setter;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDateTime;
@@ -13,6 +15,8 @@ import java.time.LocalDateTime;
 @Setter
 @Document("Articles")
 public class Article {
+
+    private static Logger logger = LogManager.getLogger(Article.class);
 
 
     @JsonIgnore
@@ -38,6 +42,9 @@ public class Article {
         this.image = image;
         this.publishedAt = publishedAt;
         this.source = source;
+
+        logger.debug("new Article created");
+        //TODO: ask if toString it to log
     }
 
 }

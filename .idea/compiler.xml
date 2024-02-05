@@ -19,7 +19,6 @@
     <bytecodeTargetLevel>
       <module name="Population_Microservice" target="17" />
       <module name="RAD_Internship" target="17" />
-      <module name="untitled" target="19" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">

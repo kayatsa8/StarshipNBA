@@ -16,6 +16,8 @@ import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import jakarta.annotation.security.PermitAll;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Value;
 
 import java.time.LocalDateTime;
@@ -30,10 +32,14 @@ import java.util.List;
 @PermitAll
 public class NewsView extends Div {
 
+    private static Logger logger = LogManager.getLogger(NewsView.class);
+
     private Grid<Article> grid;
     private String apiGatewayHost;
 
     public NewsView(@Value("${apiGateway.host}") String apiGatewayHost) {
+        logger.debug("creating news view");
+
         this.apiGatewayHost = apiGatewayHost;
 
         setSizeFull();
@@ -44,9 +50,13 @@ public class NewsView extends Div {
         layout.setPadding(false);
         layout.setSpacing(false);
         add(layout);
+
+        logger.debug("news view created");
     }
 
     private Component createGrid() {
+        logger.debug("creating news grid");
+
         grid = new Grid<>(Article.class, false);
         // Add tooltip to the "title" column
         grid.addColumn("title").setAutoWidth(false).setTooltipGenerator(Article::getTitle);
@@ -95,12 +105,18 @@ public class NewsView extends Div {
                 return new Anchor(); // Empty anchor if URL is empty
             }
         })).setHeader("Source URL").setAutoWidth(false);
+
+        logger.debug("fetching articles data");
         List<Article> articleList= new Fetcher<Article>().fetch(apiGatewayHost + "/api/news/top-headlines",
                 Article.class, new HashMap<>(),
                 (root) -> root);
+        logger.debug("articles fetched");
+
         grid.setItems(articleList);
         grid.addThemeVariants(GridVariant.LUMO_NO_BORDER);
         grid.addClassNames(LumoUtility.Border.TOP, LumoUtility.BorderColor.CONTRAST_10);
+
+        logger.debug("grid created");
 
         return grid;
     }

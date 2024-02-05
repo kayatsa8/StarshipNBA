@@ -7,6 +7,8 @@ import com.starship.nbamicroservice.model.teams.Team;
 import com.starship.nbamicroservice.service.PlayerService;
 import com.starship.nbamicroservice.service.TeamService;
 import jakarta.annotation.PostConstruct;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.starship.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,6 +25,8 @@ import java.util.List;
 @RequestMapping("/api")
 public class NBAController {
 
+    private static Logger logger = LogManager.getLogger(NBAController.class);
+
     @Autowired
     private TeamService teamService;
     @Autowired
@@ -33,6 +37,7 @@ public class NBAController {
 
 
     public NBAController(){
+        logger.info("creating NBA controller");
 
 //        teamService.init();
 //        playerService.init();
@@ -40,6 +45,8 @@ public class NBAController {
 
     @PostConstruct
     public void init(){
+        logger.debug("init teams&players data");
+
         if (teamService.findAll().isEmpty()) {
             System.out.println("importing teams - database is empty");
             Log.info("importing teams - database is empty");
@@ -50,35 +57,37 @@ public class NBAController {
             Log.info("importing teams - database is empty");
             importPlayers();
         }
+
+        logger.debug("successful init");
     }
 
     @GetMapping("/nba/teams")
     public List<Team> getTeams(){
-        Log.info("fetching teams");
+        logger.debug("returning teams");
         return teamService.findAll();
     }
 
     @PostMapping("/nba/teams")
     public void importTeams(){
-        Log.info("importing teams");
+        logger.debug("importing teams");
         teamService.init();
     }
 
     @GetMapping("/nba/players")
     public List<Player> getPlayers(){
-        Log.info("fetching players");
+        logger.debug("returning players");
         return playerService.findAll();
     }
 
     @PostMapping("/nba/players")
     public void importPlayers(){
-        Log.info("importing players");
+        logger.debug("importing players");
         playerService.init();
     }
 
     @GetMapping("/news/top-headlines")
     public List<Article> getTopHeadlines(){
-        Log.info("fetching top-headlines");
+        logger.info("fetching top-headlines");
         return new Fetcher<Article>(null, webClientBuilder).fetch("http://localhost:8083/api/news/top-headlines",
                 Article.class, new HashMap<>(), (root) -> root);//TODO change to lb
 
