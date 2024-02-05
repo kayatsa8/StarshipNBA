@@ -3,7 +3,10 @@ package com.starship.gnewsmicroservice.controller;
 import com.starship.gnewsmicroservice.log.Log;
 import com.starship.gnewsmicroservice.model.Article;
 import com.starship.gnewsmicroservice.service.ArticleService;
+import io.micrometer.core.annotation.Timed;
+import io.micrometer.core.instrument.MeterRegistry;
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -18,6 +21,8 @@ import java.util.List;
 public class GNewsController {
 
     private ArticleService service;
+    @Autowired
+    private MeterRegistry registery;
 
 
     public GNewsController(ArticleService articleService){
@@ -29,10 +34,10 @@ public class GNewsController {
         Log.info("importing articles");
         System.out.println("importing articles");
         service.init();
-
     }
     @PostConstruct
     public void init(){
+        registery.gauge("articles.in.db", service, service ->service.findAll().size());
         autoImportNews();
     }
 

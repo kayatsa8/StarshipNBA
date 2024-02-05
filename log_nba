@@ -1438,3 +1438,25 @@ INFO: fetching teams
 INFO: fetching players
 ינו׳ 29, 2024 4:16:41 אחה״צ com.starship.nbamicroservice.log.Log info
 INFO: fetching top-headlines
+ינו׳ 30, 2024 8:58:43 אחה״צ com.starship.nbamicroservice.log.Log info
+INFO: importing teams - database is empty
+ינו׳ 30, 2024 8:58:43 אחה״צ com.starship.nbamicroservice.log.Log info
+INFO: importing teams
+ינו׳ 30, 2024 8:58:44 אחה״צ com.starship.nbamicroservice.log.Log info
+INFO: importing teams - database is empty
+ינו׳ 30, 2024 8:58:44 אחה״צ com.starship.nbamicroservice.log.Log info
+INFO: importing players
+ינו׳ 31, 2024 11:29:46 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 31, 2024 11:29:46 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 31, 2024 11:29:48 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching top-headlines
+ינו׳ 31, 2024 11:29:51 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 31, 2024 11:29:51 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching players
+ינו׳ 31, 2024 11:30:14 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching teams
+ינו׳ 31, 2024 11:30:14 לפנה״צ com.starship.nbamicroservice.log.Log info
+INFO: fetching players
