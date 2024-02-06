@@ -5,6 +5,7 @@ import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
@@ -29,11 +30,15 @@ public class MainLayout extends AppLayout {
         DrawerToggle toggle = new DrawerToggle();
 
         HorizontalLayout header=new HorizontalLayout();
+        header.setWidthFull(); // Ensure the header takes up the full width
+
         if (securityService.getAuthenticatedUser() != null) {
             Button logout = new Button("Logout", click ->
                     securityService.logout());
-            header = new HorizontalLayout(logout);
+            header.add(logout);
+            header.setJustifyContentMode(FlexComponent.JustifyContentMode.END);
         }
+
 
         H1 title = new H1("Starship NBA");
         title.getStyle().set("font-size", "var(--lumo-font-size-l)")
