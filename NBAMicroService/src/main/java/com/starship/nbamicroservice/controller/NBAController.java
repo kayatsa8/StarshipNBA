@@ -4,8 +4,11 @@ import com.starship.nbamicroservice.log.Log;
 import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
+import com.starship.nbamicroservice.service.NBAService;
 import com.starship.nbamicroservice.service.PlayerService;
 import com.starship.nbamicroservice.service.TeamService;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;
 import org.starship.commons.Fetcher;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +19,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -29,13 +33,12 @@ public class NBAController {
     private PlayerService playerService;
     @Autowired
     private WebClient.Builder webClientBuilder;
+    @Autowired
+    private MeterRegistry registery;
 
 
 
     public NBAController(){
-
-//        teamService.init();
-//        playerService.init();
     }
 
     @PostConstruct
@@ -50,6 +53,8 @@ public class NBAController {
             Log.info("importing teams - database is empty");
             importPlayers();
         }
+        registery.gauge("documents.in.db", Tags.of("collection", "teams"), teamService, teamService ->teamService.findAll().size());
+        registery.gauge("documents.in.db", Tags.of("collection", "players"), playerService, playerService ->playerService.findAll().size());
     }
 
     @GetMapping("/nba/teams")
