@@ -4,7 +4,6 @@ import com.starship.nbamicroservice.log.Log;
 import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
-import com.starship.nbamicroservice.service.NBAService;
 import com.starship.nbamicroservice.service.PlayerService;
 import com.starship.nbamicroservice.service.TeamService;
 import io.micrometer.core.instrument.MeterRegistry;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.reactive.function.client.WebClient;
 
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 

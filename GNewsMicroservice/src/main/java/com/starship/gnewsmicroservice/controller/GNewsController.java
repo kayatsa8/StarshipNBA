@@ -3,7 +3,6 @@ package com.starship.gnewsmicroservice.controller;
 import com.starship.gnewsmicroservice.log.Log;
 import com.starship.gnewsmicroservice.model.Article;
 import com.starship.gnewsmicroservice.service.ArticleService;
-import io.micrometer.core.annotation.Timed;
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;
@@ -21,7 +20,7 @@ import java.util.List;
 @RequestMapping("/api/news")
 public class GNewsController {
 
-    private ArticleService service;
+    private final ArticleService service;
     @Autowired
     private MeterRegistry registery;
 
