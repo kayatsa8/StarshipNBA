@@ -1,4 +1,4 @@
-package com.starship.nbamicroservice.service;
+package com.starship.nbamicroservice.service.implementations;
 
 import com.starship.nbamicroservice.model.games.Game;
 import com.starship.nbamicroservice.repository.GameRepository;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import org.starship.commons.Fetcher;
 
 @Service
-public class GameService extends NBAService{
+public class GameService extends NBAService {
 
     private static Logger logger = LogManager.getLogger(GameService.class);
 

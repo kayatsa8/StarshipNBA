@@ -1,6 +1,5 @@
 package com.starship.gnewsmicroservice.controller;
 
-import com.starship.gnewsmicroservice.log.Log;
 import com.starship.gnewsmicroservice.model.Article;
 import com.starship.gnewsmicroservice.service.ArticleService;
 import jakarta.annotation.PostConstruct;

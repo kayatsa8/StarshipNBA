@@ -1,4 +1,4 @@
-package com.starship.nbamicroservice.service;
+package com.starship.nbamicroservice.service.implementations;
 
 import com.starship.nbamicroservice.model.team_statistics.TeamStatistics;
 import com.starship.nbamicroservice.repository.TeamStatisticsRepository;
