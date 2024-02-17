@@ -2,6 +2,8 @@ package com.starship.populationmicroservice.restControllers;
 
 import com.starship.populationmicroservice.resouces.Country;
 import com.starship.populationmicroservice.repositories.CountryRep;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,6 +24,9 @@ public class Countries {
     @Autowired
     private CountryRep countryRepository;
 
+    @Autowired
+    private MeterRegistry registery;
+
     @PostConstruct
     public void init(){
         logger.info("init population data");
@@ -31,6 +36,7 @@ public class Countries {
             //importCountries();
             countryRepository.save(new Country());
         }
+        registery.gauge("documents.in.db", Tags.of("collection", "countries"),countryRepository, countryRepository ->countryRepository.findAll().size());
     }
 
     @PostMapping("/countries")
