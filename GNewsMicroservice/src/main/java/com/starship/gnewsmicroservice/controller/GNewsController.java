@@ -2,9 +2,12 @@ package com.starship.gnewsmicroservice.controller;
 
 import com.starship.gnewsmicroservice.model.Article;
 import com.starship.gnewsmicroservice.service.ArticleService;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +24,9 @@ public class GNewsController {
     private ArticleService service;
 
     private static Logger logger = LogManager.getLogger(GNewsController.class);
+
+    @Autowired
+    private MeterRegistry registery;
 
 
     public GNewsController(ArticleService articleService){
@@ -40,6 +46,7 @@ public class GNewsController {
     @PostConstruct
     public void init(){
         logger.info("GNewsController init");
+        registery.gauge("documents.in.db", Tags.of("collection", "articles"), service, service ->service.findAll().size());
         autoImportNews();
     }
 

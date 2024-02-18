@@ -6,6 +6,8 @@ import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
 import com.starship.nbamicroservice.service.interfaces.PlayerService;
 import com.starship.nbamicroservice.service.interfaces.TeamService;
+import io.micrometer.core.instrument.MeterRegistry;
+import io.micrometer.core.instrument.Tags;
 import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,6 +34,8 @@ public class NBAController {
     private PlayerService playerService;
     @Autowired
     private WebClient.Builder webClientBuilder;
+    @Autowired
+    private MeterRegistry registery;
 
 
 
@@ -56,7 +60,8 @@ public class NBAController {
             Log.info("importing teams - database is empty");
             importPlayers();
         }
-
+        registery.gauge("documents.in.db", Tags.of("collection", "teams"), teamService, teamService ->teamService.findAll().size());
+        registery.gauge("documents.in.db", Tags.of("collection", "players"), playerService, playerService ->playerService.findAll().size());
         logger.debug("successful init");
     }
 
