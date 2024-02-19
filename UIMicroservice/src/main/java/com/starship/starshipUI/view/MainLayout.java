@@ -5,6 +5,7 @@ import com.vaadin.flow.component.applayout.AppLayout;
 import com.vaadin.flow.component.applayout.DrawerToggle;
 import com.vaadin.flow.component.button.Button;
 import com.vaadin.flow.component.html.H1;
+import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 import com.vaadin.flow.component.orderedlayout.Scroller;
 import com.vaadin.flow.component.sidenav.SideNav;
@@ -35,10 +36,13 @@ public class MainLayout extends AppLayout {
         DrawerToggle toggle = new DrawerToggle();
 
         HorizontalLayout header=new HorizontalLayout();
+        header.setWidthFull();
         if (securityService.getAuthenticatedUser() != null) {
             Button logout = new Button("Logout", click ->
                     securityService.logout());
-            header = new HorizontalLayout(logout);
+            logout.getStyle().set("margin-right", "10px");
+            header.add(logout);
+            header.setJustifyContentMode(FlexComponent.JustifyContentMode.END);
         }
 
         H1 title = new H1("Starship NBA");
@@ -59,12 +63,6 @@ public class MainLayout extends AppLayout {
     private SideNav getSideNav(){
         logger.debug("creating side navigation");
         SideNav nav = new SideNav();
-
-        //hi mom
-//        SideNavItem item = new SideNavItem("Hi Mom", HiMom.class);
-//        nav.addItem(item);
-
-
         //nba
         addNBAScreen(nav);
         addNewsScreen(nav);
