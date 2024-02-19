@@ -1,7 +1,6 @@
 package com.starship.nbamicroservice.controller;
 
 import com.starship.nbamicroservice.log.Log;
-import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
 import com.starship.nbamicroservice.service.interfaces.PlayerService;
@@ -17,7 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
-import org.springframework.web.reactive.function.client.WebClient;
 import java.util.List;
 
 @RestController
