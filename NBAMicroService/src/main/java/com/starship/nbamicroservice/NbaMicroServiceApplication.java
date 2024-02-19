@@ -1,7 +1,5 @@
 package com.starship.nbamicroservice;
 
-import io.opentelemetry.exporter.otlp.trace.OtlpGrpcSpanExporter;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
