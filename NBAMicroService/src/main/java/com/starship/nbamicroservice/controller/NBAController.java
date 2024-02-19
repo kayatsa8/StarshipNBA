@@ -12,10 +12,15 @@ import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.http.HttpMethod;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.reactive.function.client.WebClient;
 import org.starship.commons.Fetcher;
 
@@ -36,6 +41,8 @@ public class NBAController {
     private WebClient.Builder webClientBuilder;
     @Autowired
     private MeterRegistry registery;
+    @Autowired
+    private RestTemplate restTemplate;
 
 
 
@@ -90,12 +97,9 @@ public class NBAController {
     }
 
     @GetMapping("/news/top-headlines")
-    public List<Article> getTopHeadlines(){
+    public String getTopHeadlines(){
         logger.info("fetching top-headlines");
-        return new Fetcher<Article>(null, webClientBuilder).fetch("http://localhost:8083/api/news/top-headlines",
-                Article.class, new HashMap<>(), (root) -> root);//TODO change to lb
-
-        //localhost:8083
+        return restTemplate.getForObject("http://ms-news/api/news/top-headlines", String.class);
     }
 
 
