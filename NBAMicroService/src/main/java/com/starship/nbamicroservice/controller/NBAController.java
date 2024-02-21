@@ -1,7 +1,6 @@
 package com.starship.nbamicroservice.controller;
 
 import com.starship.nbamicroservice.log.Log;
-import com.starship.nbamicroservice.model.gnewsModel.Article;
 import com.starship.nbamicroservice.model.players.Player;
 import com.starship.nbamicroservice.model.teams.Team;
 import com.starship.nbamicroservice.service.interfaces.PlayerService;
@@ -16,10 +15,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.starship.commons.Fetcher;
-
-import java.util.HashMap;
+import org.springframework.web.client.RestTemplate;
 import java.util.List;
 
 @RestController
@@ -33,17 +29,14 @@ public class NBAController {
     @Autowired
     private PlayerService playerService;
     @Autowired
-    private WebClient.Builder webClientBuilder;
-    @Autowired
     private MeterRegistry registery;
+    @Autowired
+    private RestTemplate restTemplate;
 
 
 
     public NBAController(){
         logger.info("creating NBA controller");
-
-//        teamService.init();
-//        playerService.init();
     }
 
     @PostConstruct
@@ -90,12 +83,9 @@ public class NBAController {
     }
 
     @GetMapping("/news/top-headlines")
-    public List<Article> getTopHeadlines(){
+    public String getTopHeadlines(){
         logger.info("fetching top-headlines");
-        return new Fetcher<Article>(null, webClientBuilder).fetch("http://localhost:8083/api/news/top-headlines",
-                Article.class, new HashMap<>(), (root) -> root);//TODO change to lb
-
-        //localhost:8083
+        return restTemplate.getForObject("http://ms-news/api/news/top-headlines", String.class);
     }
 
 
