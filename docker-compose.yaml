@@ -2,25 +2,12 @@ version: '3.9'
 services:
   mongodb:
     image: mongo:latest
-    container_name: mongodb
+    container_name: mongodb_startship
     restart: unless-stopped
     ports:
-      - "27017:27017"
-
-  population:
-    build: ./PopulationMicroservice
-    image: population-image
-    container_name: population-container
-    ports:
-      - "8082:8082"
-    environment:
-      MONGO_HOST: host.docker.internal
-      MONGO_PORT: 27017
-      MONGO_DB: RAD
-      EUREKA_PATH: http://service-discovery:8761/eureka/
-    depends_on:
-      - mongodb
-      - service-discovery
+      - "27071:27017"
+    volumes:
+      - /path/on/host:/data/db
 
   service-discovery:
     build: ./ServiceDiscovery
@@ -29,3 +16,71 @@ services:
     container_name: service-discovery-container
     ports:
       - "8761:8761"
+
+  gateway:
+    build: ./APIGateway
+    image: gateway-image
+    container_name: gateway-container
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+    depends_on:
+      - service-discovery
+
+  nba:
+    build: ./NBAMicroService
+    image: nba-image
+    container_name: nba-container
+    ports:
+      - "8081:8081"
+    environment:
+      MONGO_HOST: mongodb_startship
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+    depends_on:
+      - mongodb
+      - service-discovery
+
+  population:
+    build: ./PopulationMicroservice
+    image: population-image
+    container_name: population-container
+    ports:
+      - "8082:8082"
+    environment:
+      MONGO_HOST: mongodb_startship
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+    depends_on:
+      - mongodb
+      - service-discovery
+
+  news:
+    build: ./GNewsMicroservice
+    image: news-image
+    container_name: news-container
+    hostname: news
+    ports:
+      - "8083:8083"
+    environment:
+      MONGO_HOST: mongodb_startship
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+    depends_on:
+      - mongodb
+      - service-discovery
+
+  ui:
+    build: ./UIMicroservice
+    image: ui-image
+    container_name: ui-container
+    ports:
+      - "8035:8035"
+    environment:
+      API_GATEWAY: http://gateway:8080
+    depends_on:
+      - gateway

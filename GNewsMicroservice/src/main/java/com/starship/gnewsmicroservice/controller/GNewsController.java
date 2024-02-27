@@ -63,6 +63,11 @@ public class GNewsController {
         service.init();
     }
 
+    @GetMapping("hello")
+    public String hello(){
+        return "hello";
+    }
+
 
 //    @GetMapping("/log")
 //    public String logTest(){
