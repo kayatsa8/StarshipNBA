@@ -13,3 +13,5 @@ COPY ./target/PopulationMicroservice-0.0.1-SNAPSHOT.jar .
 EXPOSE 8082
 
 ENTRYPOINT ["java", "-jar", "PopulationMicroservice-0.0.1-SNAPSHOT.jar"]
+
+# to build: mvn clean install
