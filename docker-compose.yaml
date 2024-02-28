@@ -19,6 +19,8 @@ services:
     environment:
       ZIPKIN_HOST: zipkin
       ZIPKIN_PORT: 9411
+    depends_on:
+      - zipkin
 
   gateway:
     build: ./APIGateway
@@ -103,7 +105,7 @@ services:
 
   zipkin:
     image: openzipkin/zipkin
-    container_name: zipkin-container
     hostname: zipkin
+    container_name: zipkin-container
     ports:
       - "9411:9411"
