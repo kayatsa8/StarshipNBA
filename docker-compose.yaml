@@ -103,9 +103,13 @@ services:
       - population
       - news
 
+########################### zipkin
+
   zipkin:
     image: openzipkin/zipkin
     hostname: zipkin
     container_name: zipkin-container
     ports:
       - "9411:9411"
+
+######################### ELK
