@@ -161,6 +161,7 @@ services:
       - logstash-data:/usr/share/logstash/data
       - certs:/usr/share/logstash/certs
       - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf:ro
+#      - ./myLog.log:/usr/share/logstash/logs/myLog.log
     environment:
       - NODE_NAME="logstash"
       - xpack.monitoring.enabled=false
@@ -171,3 +172,15 @@ services:
     ports:
       - "5044:5044/udp"
 #    mem_limit: ${LS_MEM_LIMIT}
+
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+    container_name: filebeat
+    user: root
+    command: --strict.perms=false
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - ./myLog.log:/logs/myLog.log
+    depends_on:
+      - logstash
