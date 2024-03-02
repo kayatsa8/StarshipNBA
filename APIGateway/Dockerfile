@@ -6,7 +6,7 @@ RUN addgroup -S gateway-group && adduser -S gateway-user -G gateway-group
 
 USER gateway-user
 
-WORKDIR /nba
+WORKDIR /gateway
 
 COPY ./target/APIGateway-0.0.1-SNAPSHOT.jar .
 

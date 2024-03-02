@@ -1,5 +1,6 @@
 version: '3.9'
 services:
+
   mongodb:
     image: mongo:latest
     container_name: mongodb-container
@@ -113,3 +114,11 @@ services:
       - "9411:9411"
 
 ######################### ELK
+
+
+
+
+networks:
+  default:
+    name: starship-network
+    external: false
