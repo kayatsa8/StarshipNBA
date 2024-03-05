@@ -19,7 +19,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/news")
-public class GNewsController {
+public class  GNewsController {
 
     private ArticleService service;
 

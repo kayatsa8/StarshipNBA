@@ -1,0 +1,22 @@
+version: '3'
+
+
+networks:
+  default:
+    name: starship-network
+    external: false
+
+
+services:
+
+  prometheus:
+    image: prom/prometheus
+    hostname: prometheus
+    container_name: prometheus
+    networks:
+      - default
+    volumes:
+      - "./prometheus.yml:/etc/prometheus/prometheus.yml"
+    ports:
+      - 9090:9090
+
