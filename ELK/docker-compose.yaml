@@ -176,16 +176,82 @@ services:
       - "5044:5044/udp"
 #    mem_limit: ${LS_MEM_LIMIT}
 
-  filebeat:
+  filebeat-all:
     image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
-    container_name: filebeat
+    container_name: filebeat-all
     user: root
     command: --strict.perms=false
     volumes:
-      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - logs:/logs_from_springboot
+      - ./filebeat-conf/filebeat-all.yml:/usr/share/filebeat/filebeat.yml:ro
+      - logs:/allLogs
 #      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-#      - ./myLog.log:/logs/myLog.log
-#      - ../containersLogs:/logs_from_springboot
+#      - ./myLog.log:/logs/myLog.log -> host volume for single file
+#      - ../containersLogs:/logs_from_springboot -> host volume for a folder
     depends_on:
       - logstash
+
+#  filebeat-service-discovery:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-service-discovery
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-service-discovery.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/serviceDiscoveryLogs
+#    depends_on:
+#      - logstash
+#
+#  filebeat-gateway:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-gateway
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-gateway.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/gatewayLogs
+#    depends_on:
+#      - logstash
+#
+#  filebeat-nba:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-nba
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-nba.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/nbaLogs
+#    depends_on:
+#      - logstash
+#
+#  filebeat-population:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-population
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-population.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/populationLogs
+#    depends_on:
+#      - logstash
+#
+#  filebeat-gnews:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-gnews
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-gnews.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/gnewsLogs
+#    depends_on:
+#      - logstash
+#
+#  filebeat-ui:
+#    image: docker.elastic.co/beats/filebeat:${STACK_VERSION}
+#    container_name: filebeat-ui
+#    user: root
+#    command: --strict.perms=false
+#    volumes:
+#      - ./filebeat-conf/filebeat-ui.yml:/usr/share/filebeat/filebeat.yml:ro
+#      - logs:/uiLogs
+#    depends_on:
+#      - logstash

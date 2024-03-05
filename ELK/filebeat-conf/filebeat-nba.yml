@@ -1,0 +1,8 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - '/nbaLogs/nbaLog.log'
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  index: nba

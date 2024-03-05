@@ -1,7 +1,7 @@
 filebeat.inputs:
   - type: log
     paths:
-      - '/logs_from_springboot/*.log'
+      - '/allLogs/*.log'
 #  - type: container
 #    paths:
 #      - '/var/lib/docker/containers/news-container/news/logs/*.log'

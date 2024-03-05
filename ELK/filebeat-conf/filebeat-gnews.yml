@@ -1,0 +1,8 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - '/gnewsLogs/gnewsLog.log'
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  index: gnews

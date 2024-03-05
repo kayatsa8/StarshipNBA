@@ -1,0 +1,8 @@
+filebeat.inputs:
+  - type: log
+    paths:
+      - '/gatewayLogs/gatewayLog.log'
+
+output.logstash:
+  hosts: ["logstash:5044"]
+  index: api-gateway
