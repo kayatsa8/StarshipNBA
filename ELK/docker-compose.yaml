@@ -9,6 +9,9 @@ volumes:
     driver: local
   logstash-data:
     driver: local
+  logs:
+    external: true
+    name: starshipnba_logs
 
 networks:
   default:
@@ -180,7 +183,9 @@ services:
     command: --strict.perms=false
     volumes:
       - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
-      - /var/lib/docker/containers:/var/lib/docker/containers:ro
-      - ./myLog.log:/logs/myLog.log
+      - logs:/logs_from_springboot
+#      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+#      - ./myLog.log:/logs/myLog.log
+#      - ../containersLogs:/logs_from_springboot
     depends_on:
       - logstash

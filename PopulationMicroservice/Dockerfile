@@ -8,6 +8,9 @@ USER population-user
 
 WORKDIR /population
 
+# this allows the program to write into logs volume
+RUN mkdir logs
+
 COPY ./target/PopulationMicroservice-0.0.1-SNAPSHOT.jar .
 
 EXPOSE 8082

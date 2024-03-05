@@ -22,6 +22,8 @@ services:
       ZIPKIN_PORT: 9411
     depends_on:
       - zipkin
+    volumes:
+      - logs:/discovery/logs
 
   gateway:
     build: ./APIGateway
@@ -35,6 +37,8 @@ services:
       ZIPKIN_PORT: 9411
     depends_on:
       - service-discovery
+    volumes:
+      - logs:/gateway/logs
 
   nba:
     build: ./NBAMicroService
@@ -52,6 +56,8 @@ services:
     depends_on:
       - mongodb
       - service-discovery
+    volumes:
+      - logs:/nba/logs
 
   population:
     build: ./PopulationMicroservice
@@ -69,6 +75,8 @@ services:
     depends_on:
       - mongodb
       - service-discovery
+    volumes:
+      - logs:/population/logs
 
   news:
     build: ./GNewsMicroservice
@@ -87,6 +95,8 @@ services:
     depends_on:
       - mongodb
       - service-discovery
+    volumes:
+      - logs:/news/logs
 
   ui:
     build: ./UIMicroservice
@@ -103,6 +113,8 @@ services:
       - nba
       - population
       - news
+    volumes:
+      - logs:/ui/logs
 
 ########################### zipkin
 
@@ -113,12 +125,12 @@ services:
     ports:
       - "9411:9411"
 
-######################### ELK
-
-
-
+########################### zipkin
 
 networks:
   default:
     name: starship-network
     external: false
+
+volumes:
+  logs:

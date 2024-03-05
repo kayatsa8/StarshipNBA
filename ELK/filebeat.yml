@@ -1,10 +1,18 @@
 filebeat.inputs:
-#  - type: container
-#    paths:
-#      - '/var/lib/docker/containers/*/logs/*.log'
   - type: log
     paths:
-      /logs/myLog.log
+      - '/logs_from_springboot/*.log'
+#  - type: container
+#    paths:
+#      - '/var/lib/docker/containers/news-container/news/logs/*.log'
+
+#  - type: log
+#    paths:
+#      /logs/myLog.log
+
+#  - type: log
+#    paths:
+#      /logs_from_springboot/nbaLog.log
 
 output.logstash:
   hosts: ["logstash:5044"]
