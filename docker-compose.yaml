@@ -8,7 +8,7 @@ services:
     ports:
       - "27071:27017"
     volumes:
-      - /path/on/host:/data/db
+      - starship-mongo-data:/data/db
 
   service-discovery:
     build: ./ServiceDiscovery
@@ -134,3 +134,4 @@ networks:
 
 volumes:
   logs:
+  starship-mongo-data:
