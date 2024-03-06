@@ -87,7 +87,7 @@ public class NBAController {
     }
 
     @GetMapping("/news/top-headlines")
-    public String getTopHeadlines(){
+    public String getTopHeadlines(){//TODO fix changes
         logger.info("fetching top-headlines");
         List<ServiceInstance> instances = discoveryClient.getInstances("ms-news");
         if(instances.isEmpty()){

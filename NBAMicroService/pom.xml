@@ -6,7 +6,7 @@
         <groupId>com.starship</groupId>
         <artifactId>radProjectPerent</artifactId>
         <version>0.0.1-SNAPSHOT</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <relativePath>../pom.xml</relativePath> <!-- lookup parent from repository -->
     </parent>
     <artifactId>NBAMicroService</artifactId>
     <version>0.0.1-SNAPSHOT</version>

@@ -1,0 +1,137 @@
+version: '3.9'
+services:
+
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb-container
+    restart: unless-stopped
+    ports:
+      - "27071:27017"
+    volumes:
+      - starship-mongo-data:/data/db
+
+  service-discovery:
+    build: ./ServiceDiscovery
+    image: service-discovery-image
+    hostname: service-discovery
+    container_name: service-discovery-container
+    ports:
+      - "8761:8761"
+    environment:
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - zipkin
+    volumes:
+      - logs:/discovery/logs
+
+  gateway:
+    build: ./APIGateway
+    image: gateway-image
+    container_name: gateway-container
+    ports:
+      - "8080:8080"
+    environment:
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - service-discovery
+    volumes:
+      - logs:/gateway/logs
+
+  nba:
+    build: ./NBAMicroService
+    image: nba-image
+    container_name: nba-container
+    ports:
+      - "8081:8081"
+    environment:
+      MONGO_HOST: mongodb-container
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - mongodb
+      - service-discovery
+    volumes:
+      - logs:/nba/logs
+
+  population:
+    build: ./PopulationMicroservice
+    image: population-image
+    container_name: population-container
+    ports:
+      - "8082:8082"
+    environment:
+      MONGO_HOST: mongodb-container
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - mongodb
+      - service-discovery
+    volumes:
+      - logs:/population/logs
+
+  news:
+    build: ./GNewsMicroservice
+    image: news-image
+    container_name: news-container
+    hostname: news
+    ports:
+      - "8083:8083"
+    environment:
+      MONGO_HOST: mongodb-container
+      MONGO_PORT: 27017
+      MONGO_DB: RAD
+      EUREKA_PATH: http://service-discovery:8761/eureka/
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - mongodb
+      - service-discovery
+    volumes:
+      - logs:/news/logs
+
+  ui:
+    build: ./UIMicroservice
+    image: ui-image
+    container_name: ui-container
+    ports:
+      - "8035:8035"
+    environment:
+      API_GATEWAY: http://gateway:8080
+      ZIPKIN_HOST: zipkin
+      ZIPKIN_PORT: 9411
+    depends_on:
+      - gateway
+      - nba
+      - population
+      - news
+    volumes:
+      - logs:/ui/logs
+
+########################### zipkin
+
+  zipkin:
+    image: openzipkin/zipkin
+    hostname: zipkin
+    container_name: zipkin-container
+    ports:
+      - "9411:9411"
+
+########################### zipkin
+
+networks:
+  default:
+    name: starship-network
+    external: false
+
+volumes:
+  logs:
+  starship-mongo-data:

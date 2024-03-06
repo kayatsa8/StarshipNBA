@@ -8,12 +8,14 @@ import jakarta.annotation.PostConstruct;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/api/population")
@@ -50,5 +52,27 @@ public class Countries {
     public List<Country> fetchPopulation() {
         logger.debug("returning population data");
         return countryRepository.findAll();
+    }
+
+    @GetMapping("/env")
+    public String getEnv(){
+        Map<String, String> env = System.getenv();
+        StringBuilder builder = new StringBuilder();
+
+        for(String varName : env.keySet()){
+            builder.append(varName).append(": ").append(env.get(varName)).append("\n\n");
+        }
+
+        builder.append("\n\nEND\n\n");
+
+        return builder.toString();
+    }
+
+    @Value("${eureka.client.service-url.default-zone}")
+    private String eurekaUrl;
+
+    @GetMapping("url")
+    public String getEurekaUrl(){
+        return eurekaUrl;
     }
 }
