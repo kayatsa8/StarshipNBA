@@ -78,8 +78,9 @@ public class Fetcher<T>{
                     .block();
         }
         catch(Exception e){
-            logger.warn(e.getMessage());
-            logger.warn(e.getStackTrace());
+            logger.error("Exception:");
+            logger.error(e.getMessage());
+            logger.error(Arrays.toString(e.getStackTrace()));
         }
 
         logger.debug("fetched response body: " + responseBody);
