@@ -35,8 +35,8 @@ public class Countries {
 
         if(countryRepository.findAll().isEmpty()){
             logger.debug("importing countries - database is empty");
-            //importCountries();
-            countryRepository.save(new Country());
+            importCountries();
+//            countryRepository.save(new Country());
         }
         registery.gauge("documents.in.db", Tags.of("collection", "countries"),countryRepository, countryRepository ->countryRepository.findAll().size());
     }
