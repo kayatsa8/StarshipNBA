@@ -67,12 +67,20 @@ public class Fetcher<T>{
 
         WebClient webClient = WebClient.create(url);
 
-        String responseBody = webClient.get()
-                .uri("")
-                .headers(httpHeaders -> httpHeaders.setAll(headers))
-                .retrieve()
-                .bodyToMono(String.class)
-                .block();
+        String responseBody = null;
+
+        try{
+            responseBody = webClient.get()
+                    .uri("")
+                    .headers(httpHeaders -> httpHeaders.setAll(headers))
+                    .retrieve()
+                    .bodyToMono(String.class)
+                    .block();
+        }
+        catch(Exception e){
+            logger.warn(e.getMessage());
+            logger.warn(e.getStackTrace());
+        }
 
         logger.debug("fetched response body: " + responseBody);
 
