@@ -54,25 +54,4 @@ public class Countries {
         return countryRepository.findAll();
     }
 
-    @GetMapping("/env")
-    public String getEnv(){
-        Map<String, String> env = System.getenv();
-        StringBuilder builder = new StringBuilder();
-
-        for(String varName : env.keySet()){
-            builder.append(varName).append(": ").append(env.get(varName)).append("\n\n");
-        }
-
-        builder.append("\n\nEND\n\n");
-
-        return builder.toString();
-    }
-
-    @Value("${eureka.client.service-url.default-zone}")
-    private String eurekaUrl;
-
-    @GetMapping("url")
-    public String getEurekaUrl(){
-        return eurekaUrl;
-    }
 }

@@ -79,7 +79,7 @@ public class PopulationView extends Div {
                 layout.add(image);
             }
             // Country name column
-            if (!country.getCountry().isEmpty()) {
+            if (!(country.getCountry() == null || country.getCountry().isEmpty())) {
                 Span countrySpan = new Span(country.getCountry());
                 layout.add(countrySpan);
             } else {
