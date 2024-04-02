@@ -12,6 +12,7 @@
         <module name="APIGateway" />
         <module name="PopulationMicroservice" />
         <module name="GNewsMicroservice" />
+        <module name="AWS" />
         <module name="commons" />
         <module name="ServiceDiscovery" />
       </profile>
@@ -24,6 +25,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="APIGateway" options="-parameters" />
+      <module name="AWS" options="-parameters" />
       <module name="GNewsMicroservice" options="-parameters" />
       <module name="NBAMicroService" options="-parameters" />
       <module name="PopulationMicroservice" options="-parameters" />
