@@ -25,7 +25,7 @@ public abstract class NBAService implements BasicNBAService {
     protected Map<String, String> getHeaders(){
         Map<String, String> headers = new HashMap<>();
 
-        headers.put("X-RapidAPI-Key", "aa2829de53mshfbbe74cfa945e67p134bb1jsn16c2deb9b8b2");
+        headers.put("X-RapidAPI-Key", "<yourKey>");
         headers.put("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com");
 
         logger.debug("returning headers for NBA services");
