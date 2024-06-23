@@ -30,7 +30,7 @@ public class Fetch {
     public List<Country> fetchNewCountries(){
         logger.debug("fetching population data from api");
         HttpResponse<String> response = Unirest.get("https://world-population3.p.rapidapi.com/continents/Europe?rank=1")
-                .header("X-RapidAPI-Key", "53d915a6e2mshc627482e615fdc3p123088jsnf572eb818185")
+                .header("X-RapidAPI-Key", "<yourKey>")
                 .header("X-RapidAPI-Host", "world-population3.p.rapidapi.com")
                 .asString();
         logger.debug("data was fetched successfully");
