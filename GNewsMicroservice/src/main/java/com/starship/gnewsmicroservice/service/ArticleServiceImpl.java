@@ -30,7 +30,7 @@ public class ArticleServiceImpl implements ArticleService{
 
         new Fetcher<>(repository)
                 .fetch("https://gnews.io/api/v4/top-headlines?country=il&category=general" +
-                        "&apikey=ca6803dbe05ebcfd71267c4e89437524", Article.class,
+                        "&apikey=<yourKey>", Article.class,
                         new HashMap<>(), (root) -> root.path("articles"));
 
         logger.debug("Articles fetched successfully");
