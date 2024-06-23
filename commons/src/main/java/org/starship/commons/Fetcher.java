@@ -114,29 +114,4 @@ public class Fetcher<T>{
         return WebClient.builder();
     }
 
-
-
-    // LEGACY
-    /*
-     *
-     * private String fetchData(String url){
-        RestTemplate restTemplate = new RestTemplate();
-
-        HttpHeaders headers = new HttpHeaders();
-        headers.set("X-RapidAPI-Key", "aa2829de53mshfbbe74cfa945e67p134bb1jsn16c2deb9b8b2");
-        headers.set("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com");
-
-        HttpEntity<String> entity = new HttpEntity<>(headers);
-
-        ResponseEntity<String> response = restTemplate.exchange(url, HttpMethod.GET, entity, String.class);
-
-        if(response.getStatusCode().isError()){
-            System.out.println("Problem");
-            System.exit(1);
-        }
-
-        return response.getBody();
-    }
-     */
-
 }
