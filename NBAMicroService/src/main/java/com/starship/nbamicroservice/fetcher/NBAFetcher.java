@@ -36,7 +36,7 @@ public class NBAFetcher<T> {
         RestTemplate restTemplate = new RestTemplate();
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("X-RapidAPI-Key", "aa2829de53mshfbbe74cfa945e67p134bb1jsn16c2deb9b8b2");
+        headers.set("X-RapidAPI-Key", "<yourKey>");
         headers.set("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com");
 
         HttpEntity<String> entity = new HttpEntity<>(headers);
@@ -58,7 +58,7 @@ public class NBAFetcher<T> {
 
         String responseBody = webClient.get()
                 .uri("")
-                .header("X-RapidAPI-Key", "aa2829de53mshfbbe74cfa945e67p134bb1jsn16c2deb9b8b2")
+                .header("X-RapidAPI-Key", "<yourKey>")
                 .header("X-RapidAPI-Host", "api-nba-v1.p.rapidapi.com")
                 .retrieve()
                 .bodyToMono(String.class)
