@@ -1,6 +1,6 @@
 # Microservices Architecture Application
 
-This project is a microservices-based application built using Java Spring, integrating with public APIs, utilizing a service discovery server, and monitoring activities with observability tools such as Prometheus, Grafana, and Zipkin. The project is containerized using Docker and deployed on AWS.
+This project is a microservices-based application built using Java Spring, integrating with public APIs, utilizing a service discovery server, and monitoring activities with observability tools such as ELK Stack, Zipkin, Prometheus and Grafana. The project is containerized using Docker and deployed on AWS.
 
 ## Table of Contents
 - [Overview](#overview)
